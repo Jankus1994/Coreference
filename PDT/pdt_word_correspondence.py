@@ -1,3 +1,7 @@
+# Jan Faryad
+#
+# Building a matching between words in pdt and conll files
+
 from auxiliaries import get_interstring, transform_ID
 
 class PDT_word_correspondence:
@@ -11,7 +15,10 @@ class PDT_word_correspondence:
         self.list_of_corresponding_IDs = []
         self.list_of_sentence_IDs = []
         
-    def create_correspondence( self):        
+    def create_correspondence( self):
+        """
+        main method, called from outside        
+        """
         lines_to_omit = 0
         
         for conllu_line in self.conllu_input:
@@ -32,22 +39,11 @@ class PDT_word_correspondence:
                 
                 lines_to_omit += self.token_division( token, form) # spaces and punctuation in the PDT word cause its division in CoNLL-U into more words
                                                              # the pair is built with its first part, other parts ~ lines are omitted                
-                conllu_ID = ( self.para_ID, self.sent_ID, word_ID )                
-                
-                #print( pdt_ID, conllu_ID )
-                #print(token, form)
-                #print(lines_to_omit)
-                
+                conllu_ID = ( self.para_ID, self.sent_ID, word_ID )                      
                 self.list_of_corresponding_IDs += [ ( pdt_ID, conllu_ID ) ]
-                """if ( token == form ):
-                    self.list_of_corresponding_IDs += [ ( pdt_ID, conllu_ID ) ]
-                else:
-                    #pass
-                    print(token)
-                    print(form)
-                    raise Exception("Correspondence error: " + conllu_line )"""
         self.list_of_sentence_IDs += [ ( self.para_ID, self.sent_ID ) ]
         return ( self.list_of_corresponding_IDs, self.list_of_sentence_IDs )
+    
     def token_division( self, token, form):
         if ( token == form ):
             return 0
@@ -58,10 +54,7 @@ class PDT_word_correspondence:
             elif ( char in ",.?!;'-\"" ): # space or punctuation in the token - UDpipe would divide it into more words
                 lines_to_omit += 2
         return lines_to_omit
-                
-
-            
-            
+      
     def next_pdt_word( self):
         pdt_line = self.pdt_w_input.readline()
         while ( not "</doc>" in pdt_line ):
@@ -79,10 +72,3 @@ class PDT_word_correspondence:
                 return ( "", "" )
             pdt_line = self.pdt_w_input.readline()
         return ( "", "" )
-"""
-pdt = open( "C:\Komodo\Projekty\mf920922_131.w", 'r')
-conllu = open( "C:\Komodo\Projekty\mf920922_131.in.conll", 'r')
-a = PDT_word_correspondence( pdt, conllu)
-a.create_correspondence()
-#print(a.list_of_corresponding_IDs)
-"""
