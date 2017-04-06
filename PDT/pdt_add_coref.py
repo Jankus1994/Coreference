@@ -1,5 +1,5 @@
 # Jan Faryad
-# 11. 12. 2006
+# 11. 12. 2016
 #
 # Program for adding the given coreference information into a CoNLL-U file
 # moreover, it adds a sentence ID in front of each sentence
