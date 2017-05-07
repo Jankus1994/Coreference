@@ -1,9 +1,11 @@
 from auxiliaries import get_interstring
 
+path = "C:\Komodo\Projekty\\"
+
 class PDT_converter:
     def __init__( self, input_file_name, output_file_name):
-        input_file = open( input_file_name, 'r')
-        output_file = open( output_file_name, 'w')
+        input_file = open( input_file_name, 'r', encoding="utf8")
+        output_file = open( output_file_name, 'w', encoding="utf8")
         self.convert_file( input_file, output_file)
         input_file.close()
         output_file.close()
@@ -14,7 +16,6 @@ class PDT_converter:
         new_para = False
         new_word = False
         for line in input_file:
-            
             if ( "</para>" in line ):
                 new_para = True
             elif ( "<para>" in line and new_para ):
@@ -37,7 +38,19 @@ class PDT_converter:
                     actual_word = actual_word[:-1]
         output_file.write( text)       
 
-name = "ln94206_32"
-input_file_name = "C:\Komodo\Projekty\\" + name + ".w"
-output_file_name = "C:\Komodo\Projekty\\" + name + ".txt"
+# name of the file
+#name = "cmpr9410_001" # train 1
+#name = "lnd94103_052" # train 8
+#name = "ln94206_32" # train 5
+#name = "cmpr9410_032" # train 2
+#name = "ln94204_7" # train 2
+#name = "mf930713_046" # train 2
+#name = "ln94210_105" # train 2
+#name = "ln95048_134" # train 3
+#name = "mf920922_131" # train 7
+#name = "mf930713_085" # train 1
+name = "mf930713_118" # train 3
+
+input_file_name = path + name + ".w"
+output_file_name = path + name + ".txt"
 a = PDT_converter( input_file_name, output_file_name)
