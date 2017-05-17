@@ -22,7 +22,7 @@ class PDT_word_correspondence:
         lines_to_omit = 0
         
         for conllu_line in self.conllu_input:
-            if ( conllu_line == " \n" ): # a blank line - new sentence                
+            if ( conllu_line == " \n" or conllu_line == "\n" ): # a blank line - new sentence                
                 self.list_of_sentence_IDs += [ ( self.para_ID, self.sent_ID ) ]
                 self.sent_ID += 1
             elif ( conllu_line[0] != '#' ): # not a comment line -> a record line

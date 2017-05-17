@@ -49,7 +49,8 @@ class PDT_converter:
 #name = "ln95048_134" # train 3
 #name = "mf920922_131" # train 7
 #name = "mf930713_085" # train 1
-name = "mf930713_118" # train 3
+#name = "mf930713_118" # train 3
+name = "ln95048_117" # train 6
 
 input_file_name = path + name + ".w"
 output_file_name = path + name + ".txt"

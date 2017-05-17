@@ -35,7 +35,8 @@ def listing( list_of_corefs): # void
 #name = "ln95048_134" # train 3
 #name = "mf920922_131" # train 7
 #name = "mf930713_085" # train 1
-name = "mf930713_118" # train 3
+#name = "mf930713_118" # train 3
+name = "ln95048_117" # train 6
 
 # building a matching between words in PDT and CoNLL-U files
 pdt_w_input = open( path + name + ".w", 'r', encoding="utf8") # surface (word) layer

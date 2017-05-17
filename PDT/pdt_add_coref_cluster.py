@@ -28,7 +28,7 @@ class PDT_add_coreference():
         self.next_sentence() # first sentence
         self.write_sentnce_id() # print its ID to the output
         for line in self.conllu_input:
-            if ( line == " \n" ): # a new sentence
+            if ( line == " \n" or line == "\n" ): # a new sentence
                 self.conllu_output_coref.write( " \n") # preserving a space on blank lines
                 self.conllu_output_plain.write( " \n")
                 self.next_sentence()
