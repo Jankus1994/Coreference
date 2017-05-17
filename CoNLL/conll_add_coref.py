@@ -19,10 +19,14 @@ class CoNLL_add_coreference:
         self.build_clusters( list_of_triplets)
         
         iterator = 0
-        actual_coreferent = self.list_of_coreferents[ iterator ]
         para_id = 0                  
         sent_id = 0 
         for line in self.input:
+            if ( len( self.list_of_coreferents) > iterator ):
+                actual_coreferent = self.list_of_coreferents[ iterator ]
+            else:
+                actual_coreferent = None
+            
             fields = line.split( '\t')
             if ( line[0] == '#' ): # comment line beginning with #                
                 if ( len( fields) == 4 and fields[1] == '$' ): # new sentence with paragraph and sentence id
@@ -32,7 +36,7 @@ class CoNLL_add_coreference:
             elif ( line != ' \n' ): # not a blank line -> record line
                 try:
                     word_id = int( fields[0])
-                    if ( actual_coreferent.id == ( para_id, sent_id, word_id ) ):
+                    if ( actual_coreferent != None and actual_coreferent.id == ( para_id, sent_id, word_id ) ):
                         misc = fields[-1] # adding to the last column
                         coref_info = "Coref=" + str( actual_coreferent.cluster_id)
                         if ( misc == "_\n" or misc == "_" ): # no other information in the column
@@ -42,7 +46,7 @@ class CoNLL_add_coreference:
                         new_line = join_with_separator( fields[:-1] + [ new_misc ], '\t') # rebuildng the line with the new last column
                         self.output.write( new_line)
                         iterator += 1
-                        actual_coreferent = self.list_of_coreferents[ iterator ]
+                        #actual_coreferent = self.list_of_coreferents[ iterator ]
                         continue                    
                     self.output.write( line)
                 except: # range line
