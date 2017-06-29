@@ -3,58 +3,52 @@
 #
 # selection of features for feature vectors
 
-from conll_api import CoNLL_API as api
+from udapi.core.block import Block
 
-class CoNLL_selector:
-    def __init__( self, document):
-        self.document = document
-    def process_document( self): # -> list of quadruplets ( Node, Node, list of features, bool)
-        pairs_with_vectors = []
-        for paragraph in api.get_paragraphs( self.document):
-            for sentence in api.get_sentences( paragraph):
-                for node in api.get_nodes( sentence): # linear cycle through all nodes in the document
-                    if ( api.has_upostag( node, [ "PRON", "DET" ]) and # if we are suppose to detect coreference
-                        api.has_feature( node, "PronType", [ "Prs", "Rel", "Dem" ]) ):
+class Conll_selector( Block):
+    def process_document( self, doc): # -> list of quadruplets ( Node, Node, list of features, bool)
+        self.doc = doc
+        for bundle in doc.bundles:
+            for root in bundle.trees:
+                for node in root.descendants:
+                    if ( self.has_upostag( node, [ "PRON", "DET" ]) and # if we are suppose to detect coreference
+                        self.has_feature( node, "PronType", [ "Prs", "Rel", "Dem" ]) ):
                         # !!! CONDITION FOR PRO-DROPS MISSING !!!
-                        candidates = self.search_candidates( node) # list of candidates for coreference
-                        for candidate in candidates:
-                            feature_vector = self.build_feature_vector( node, candidate)
-                            target_value = api.are_coreferents( node, candidate)
-                            pairs_with_vectors.append( ( node, candidate, feature_vector, target_value ))
-        return pairs_with_vectors
+                        self.search_candidates( node) # list of candidates for coreference
     
-    def search_candidates( self, node): # -> list of Nodes
+    def search_candidates( self, node): # void
         """
         selects possible coreferents of the given node
         COULD BE CHANGED IN THE FUTURE
         """
-        actual_sentence = api.get_sentence( node)
-        previous_sentence = api.previous_sentence( actual_sentence)
-        next_sentence = api.next_sentence( actual_sentence)
+        actual_bundle = self.get_bundle( node)
+        previous_bundle = self.previous_bundle( actual_bundle)
+        next_bundle = self.next_bundle( actual_bundle)
         
-        candidates = self.search_sentence_for_candidates( node, actual_sentence)
+        #candidates = self.search_bundle_for_candidates( node, actual_bundle)
         
         backwards_distance = 3 # 3 previous sentences
         for i in range( backwards_distance):
-            if ( previous_sentence != None ):
-                candidates += self.search_sentence_for_candidates( node, previous_sentence)
-                previous_sentence = api.previous_sentence( previous_sentence)
+            if ( previous_bundle != None ):
+                #candidates += self.search_bundle_for_candidates( node, previous_bundle)
+                self.search_bundle_for_candidates( node, previous_bundle)
+                previous_bundle = self.previous_bundle( previous_bundle)
                 
-        if ( next_sentence != None ):
-            candidates += self.search_sentence_for_candidates( node, next_sentence)
+        if ( next_bundle != None ):
+            #candidates += self.search_sentence_for_candidates( node, next_sentence)
+            self.search_bundle_for_candidates( node, next_bundle)
         # ...PPPAN... we search three sentences backwards, the actual and the next sentence
         
-        return candidates
-    def search_sentence_for_candidates( self, node, sentence): # -> list of Nodes
+    def search_bundle_for_candidates( self, node, bundle): # void
         """
         candidates from the given setences
         """
-        nodes = api.get_nodes( sentence)
-        candidates = []
-        for candidate in nodes:
+        root = bundle.trees[0]
+        for candidate in root.descendants:
             if ( self.consider_candidate( node, candidate) ):
-                candidates.append( candidate)
-        return candidates
+                #candidates.append( candidate)
+                self.print_feature_vector( node, candidate)
+        #return candidates
     def consider_candidate( self, node, candidate): # -> bool
         """
         if "candidate" is an appropriate candidate for coreference with "node"
@@ -62,16 +56,16 @@ class CoNLL_selector:
         """
         if ( node == candidate ):
             return False
-        if ( api.has_upostag( candidate, ["NOUN", "PRON", "VERB"]) ):
+        if ( self.has_upostag( candidate, ["NOUN", "PRON", "VERB"]) ):
             return True
         return False
-    def build_feature_vector( self, node, candidate): # -> list - feature vector for the given pair
+    def print_feature_vector( self, node, candidate): # void
         """
         for now, list of bools, but ints (distances) are also considerable
         !!! SHOULD BE CHANGED IN THE FUTURE !!!
         """
         feature_vector = []
-        same_sentence = api.in_same_sentence( node, candidate)
+        same_sentence = ( self.get_bundle( node) == self.get_bundle( candidate) )
         
         # distances
         # feature_vector.append( same_sentence)
@@ -89,28 +83,77 @@ class CoNLL_selector:
         # feature_vector.append( api.compound_distance( node, candidate))
         # feature_vector.append( api.ccs_depth( node, candidate))
 
-        anaphoric_pronoun = api.get_id( node) > api.get_id( candidate) # the pronoun is after its antecedent - anaphora
+        anaphoric_pronoun = node.ord > candidate.ord # the pronoun is after its antecedent - anaphora
         feature_vector.append( same_sentence and anaphoric_pronoun)
         
         # grammar
         # ? not only bool for equality, but also categories ?
-        feature_vector.append( api.has_feature( node, "Case", api.get_features_by_name( candidate, "Case"))) # same case
-        feature_vector.append( api.has_feature( node, "Gender", api.get_features_by_name( candidate, "Gender"))) # same gender
-        feature_vector.append( api.has_feature( node, "Number", api.get_features_by_name( candidate, "Number"))) # same number
+        feature_vector.append( self.has_feature( node, "Case", candidate.feats['Case'].split( ','))) # same case
+        feature_vector.append( self.has_feature( node, "Gender", candidate.feats['Gender'].split( ','))) # same gender
+        feature_vector.append( self.has_feature( node, "Number", candidate.feats['Number'].split( ','))) # same number
         
         # pronoun
-        feature_vector.append( api.has_feature( node, "PronType", ["Dem"])) # demonstrative
-        feature_vector.append( api.has_feature( node, "PronType", ["Prs"])) # personal
-        feature_vector.append( api.has_feature( node, "PronType", ["Rel"])) # relative
-        feature_vector.append( api.has_feature( node, "Reflex", ["Yes"])) # reflexive
-        feature_vector.append( api.has_feature( node, "Poss", ["Yes"])) # possessive
+        feature_vector.append( self.has_feature( node, "PronType", ["Dem"])) # demonstrative
+        feature_vector.append( self.has_feature( node, "PronType", ["Prs"])) # personal
+        feature_vector.append( self.has_feature( node, "PronType", ["Rel"])) # relative
+        feature_vector.append( self.has_feature( node, "Reflex", ["Yes"])) # reflexive
+        feature_vector.append( self.has_feature( node, "Poss", ["Yes"])) # possessive
         
         # candidate
         # part of speech
-        feature_vector.append( api.has_upostag( candidate, ["NOUN"]))
-        feature_vector.append( api.has_upostag( candidate, ["PRON"]))
-        feature_vector.append( api.has_upostag( candidate, ["VERB"]))
+        feature_vector.append( candidate.upos == "NOUN" )
+        feature_vector.append( candidate.upos == "PRON" )
+        feature_vector.append( candidate.upos == "VERB" )
         # function in the sentence
-        feature_vector.append( api.has_deprel( candidate, ["nsubj"])) # nominal subject
+        feature_vector.append( candidate.udeprel == "nsubj" ) # nominal subject
         
-        return feature_vector    
+        # target_value
+        feature_vector.append( self.are_coreferents( node, candidate))
+        
+        feature_vector.append(node.form)
+        feature_vector.append(candidate.form)
+        
+        for i in range( len( feature_vector) - 1):
+            print( feature_vector[i], end='\t')
+        print( feature_vector[-1])
+    
+    ## ## ## complementary interface
+    
+    def has_upostag( self, node, list_of_possible_upostags): # -> bool
+        """
+        controls if the node's upostag is on of the possible ones
+        """
+        return ( node.upos in list_of_possible_upostags )
+    
+    def has_feature( self, node, feature_name, list_of_possible_values): # -> bool
+        """
+        controls if the node has the given feature and if one of it's values is possible
+        """
+        list_of_real_values = node.feats[ feature_name ].split( ',')
+        return ( len( set( list_of_real_values) & set( list_of_possible_values) ) > 0 )
+    def get_bundle( self, node):
+        n = node
+        while ( not n.is_root() ):
+            n = n.parent
+        return n.bundle
+    def previous_bundle( self, bundle):
+        bundle_id = int( bundle.bundle_id)
+        if ( bundle_id > 1 ):
+            return self.doc.bundles[ bundle_id - 1 ]
+    def next_bundle( self, bundle):
+        bundle_id = int( bundle.bundle_id)
+        if ( bundle_id < len( self.doc.bundles) - 1):
+            return self.doc.bundles[ bundle_id + 1 ]        
+    def are_coreferents( self, node, candidate): # -> bool
+        """
+        if two nodes are in the same coreference cluster
+        """
+        coref_1 = node.misc['Coref']
+        drop_coref_1 = node.misc['Drop_coref']
+        coref_2 = candidate.misc['Coref']
+        drop_coref_2 = candidate.misc['Drop_coref']
+        for c in [ coref_1, drop_coref_1 ]:
+            if ( c != "" and c in [ coref_2, drop_coref_2 ] ):                
+                return True
+        return False        
+    
