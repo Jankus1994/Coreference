@@ -28,10 +28,9 @@ class PDT_word_correspondence:
                         nodes_to_omit -= 1
                         continue
                     
-                    if ( node.multiword_token != None ):
-                        nodes_to_omit += len( node.multiword_token.words) - 1
-                    
-                    # !!! OSETRIT VIACNASOBNE UZLY !!!                   
+                    if ( node.multiword_token != None ): # originally one token, divided by UDPipe into multiple nodes. for the matching we use only 
+                                                         # the first node, the rest must be omitted
+                        nodes_to_omit += len( node.multiword_token.words) - 1                                  
                     
                     word_ID = node.ord
                     form = node.form
@@ -40,29 +39,31 @@ class PDT_word_correspondence:
                     
                     
                     nodes_to_omit += self.token_division( token, form) # spaces and punctuation in the PDT word cause its division in CoNLL-U into more words
-                    # the pair is built with its first part, other parts ~ lines are omitted   
+                    # for the matching we use only the first node, the rest must be omitted
                     conll_ID = ( self.para_ID, self.sent_ID, word_ID )
                     self.list_of_corresponding_IDs += [ ( pdt_ID, conll_ID ) ]                                    
                 self.list_of_sentence_IDs += [ ( self.para_ID, self.sent_ID ) ] 
                 self.sent_ID += 1
         return ( self.list_of_corresponding_IDs, self.list_of_sentence_IDs )
     
-    def token_division( self, token, form):
+    def token_division( self, token, form): # -> int
+        """
+        space or punctuation in the token - UDpipe divides it into more nodes
+        """
         if ( token == form ):
             return 0
         lines_to_omit = 0
         for char in token:
-            if ( char == ' '):
+            if ( char == ' '): # space divides the token into two parts
                 lines_to_omit += 1
-            elif ( char in punctuation ): # space or punctuation in the token - UDpipe would divide it into more words
+            elif ( char in punctuation ): # punctuation into three (the punctuation sign itself forms also a node)
                 lines_to_omit += 2
         return lines_to_omit    
       
-    def next_pdt_word( self):
+    def next_pdt_word( self): # -> ( pdt_ID (string), pdt token form (string) )
         pdt_line = self.pdt_w_input.readline()
-        while ( not "</doc>" in pdt_line ):
-            #print(self.para_ID, self.sent_ID )          
-            if ( "<para" in pdt_line ):
+        while ( not "</doc>" in pdt_line ):       
+            if ( "<para" in pdt_line ): # new paragraph
                 self.para_ID += 1
                 self.sent_ID = 1      
             elif ( "<w id" in pdt_line ):

@@ -22,16 +22,12 @@ class PDT_add_coreference():
     def process_file( self): # void
         """
         main method for adding - run from outside
-        """      
-        #self.next_sentence() # first sentence
-        
+        iterating all the nodes and controlling, which of them have a coreference record in the list
+        """        
         for bundle in self.conll_doc.bundles:
             for root in bundle.trees:
                 self.next_sentence()
-                for node in root.descendants:
-                    
-                    # !!! OSETRIT VIACNASOBNE UZLY !!!
-                    
+                for node in root.descendants:                    
                     self.word_ID = node.ord
                     if ( self.compare_coref_position() ): # if the actual position in the input equals the position with the next coreference
                         while ( self.compare_coref_position() ): # there can be more coreferences in one node - if its coreferenting subnodes are missing at the surface layer
