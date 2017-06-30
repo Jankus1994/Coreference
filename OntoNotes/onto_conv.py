@@ -15,7 +15,9 @@ class Onto_converter:
             if ( active ):
                 if ( line != "---------------\n"):                    
                     converted += self.remove_punct_spaces( line[3:-1])
-            if ( line == "Plain sentence:\n" ):
+            elif ( "Coreference chains" in line ):
+                converted += "\n\n"
+            elif ( "Plain sentence" in line ):
                 active = True
         print("yu")
         output_file.write( converted)
@@ -45,6 +47,8 @@ class Onto_converter:
                 
     
 name = "cctv_0000"
+#name = "abc_0001"
+
 input_file_name = "C:\Komodo\Projekty\\" + name + ".onf"
 output_file_name = "C:\Komodo\Projekty\\" + name + ".txt"
 a = Onto_converter( input_file_name, output_file_name)
