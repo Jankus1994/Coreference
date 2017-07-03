@@ -1,3 +1,7 @@
+# Jan Faryad
+#
+# conversion of sentences fron onf file to plain text
+
 class Onto_converter:
     def __init__( self, input_file_name, output_file_name):
         input_file = open( input_file_name, 'r')
@@ -8,32 +12,21 @@ class Onto_converter:
         
     def convert_file( self, input_file, output_file):
         converted = ""
-        active = False
+        active = False # if we read the plain sentence
         for line in input_file:            
             if ( line == '\n'):
                 active = False
             if ( active ):
-                if ( line != "---------------\n"):                    
+                if ( line != "---------------\n"):                
                     converted += self.remove_punct_spaces( line[3:-1])
-            elif ( "Coreference chains" in line ):
+            elif ( "Coreference chains" in line ): # end of the section
                 converted += "\n\n"
             elif ( "Plain sentence" in line ):
                 active = True
-        print("yu")
         output_file.write( converted)
-        """
-            new_line = ""
-            active = True
-            for char in line:
-                if ( char == '<' ):
-                    active = False                
-                if ( active ):
-                    new_line += char
-                if ( char == '>' ):
-                    active = True
-            print( new_line)
-            """
+
     def remove_punct_spaces( self, string): # -> string
+        """ removing spaces before punctuation """
         if ( len( string) < 2 ):
             return string
         new_string = ""
@@ -45,10 +38,12 @@ class Onto_converter:
         new_string += string[-1]
         return new_string
                 
-    
-name = "cctv_0000"
+
+name = "a2e_0000"
+#name = "ann_0001"    
+#name = "ectb_1003"
 #name = "abc_0001"
 
-input_file_name = "C:\Komodo\Projekty\\" + name + ".onf"
-output_file_name = "C:\Komodo\Projekty\\" + name + ".txt"
+input_file_name = "/afs/ms.mff.cuni.cz/u/f/faryadj/udapi-python/demo/" + name + ".onf"
+output_file_name = "/afs/ms.mff.cuni.cz/u/f/faryadj/udapi-python/demo/" + name + ".txt"
 a = Onto_converter( input_file_name, output_file_name)
