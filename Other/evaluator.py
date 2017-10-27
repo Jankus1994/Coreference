@@ -17,7 +17,7 @@ class Evaluator:
         recall_sum     = 0
         for name in namefile:
             gold_file_name = "test/" + name[:-1] + ".out.conllu"  # files which are going to be compared
-            auto_file_name = "test/" + name[:-1] + ".auto.conllu"
+            auto_file_name = "test/" + name[:-1] + ".out.conllu"
             try:
                 gold_file = open( gold_file_name, 'r')
             except:
@@ -99,13 +99,15 @@ class Evaluator:
                 if ( gold_coref.coref_type == Coref_type.Pronoun and auto_coref.coref_type == Coref_type.Pronoun ):
                     gold_cluster = gold_coref.cluster # proper cluster assigned to this coref
                     auto_cluster = auto_coref.cluster
-                    if ( gold_cluster and auto_cluster ):
+                    if ( gold_cluster and auto_cluster ):                    
                         ( prec, rec ) = self.compare_clusters( gold_cluster, auto_cluster)
                 elif ( gold_coref.coref_type == Coref_type.Dropped and auto_coref.coref_type == Coref_type.Dropped ):
                     gold_drop_cluster = gold_coref.drop_cluster # cluster assigned to a potential dropped descendant
-                    auto_drop_cluster = auto_coref.drop_cluster                   
-                    if ( gold_drop_cluster and auto_drop_cluster ):
+                    auto_drop_cluster = auto_coref.drop_cluster                        
+                    if ( gold_drop_cluster and auto_drop_cluster ):                                
                         ( prec, rec ) = self.compare_clusters( gold_drop_cluster, auto_drop_cluster)
+                #if (prec == 0):
+                #    print( gold_coref.coref_type, auto_coref.coref_type)
                 precision_sum += prec
                 recall_sum    += rec
         
@@ -130,7 +132,7 @@ class Evaluator:
         # "-1" in the next: not counting the actual coreferent
         size_1     = len( cluster_1.coref_ids) - 1
         size_2     = len( cluster_2.coref_ids) - 1
-        inter_size = len( set( cluster_1.coref_ids) & set( cluster_2.coref_ids)) - 1
+        inter_size = len( set( cluster_1.coref_ids) & set( cluster_2.coref_ids)) - 1        
         prec = inter_size / float( size_1)
         rec  = inter_size / float( size_2)   
         return ( prec, rec )
@@ -153,6 +155,7 @@ class Evaluator:
                     misc_split = misc.split( '|')
                     cluster      = None
                     drop_cluster = None
+                    drop = False
                     for misc_record in misc_split:
                         ( attribute, value ) = misc_record.split( '=')
                         if ( attribute == "Coref" ):
@@ -165,6 +168,7 @@ class Evaluator:
                                 cluster = appropriate_clusters[0] # there is at most one element
                             cluster.add_coreferent( coref_id) # adding coreferent id to the list of coreferents of the cluster                                
                         elif ( attribute == "Drop_coref" ):
+                            drop = True
                             drop_cluster_id = int( value)                            
                             appropriate_clusters = [ cluster for cluster in clusters if ( cluster.cluster_id == drop_cluster_id ) ]
                             if ( appropriate_clusters == [] ): # first occurence of this cluster id - create a new instance
@@ -173,12 +177,12 @@ class Evaluator:
                             else: # already existing cluster
                                 drop_cluster = appropriate_clusters[0] # there is at most one element
                             drop_cluster.add_coreferent( coref_id) # adding coreferent id to the list of coreferents of the cluster
-                    coref_type = self.get_coref_type( fields[ Fields.UPOSTAG ], fields[ Fields.FEATS ]) # if we are supposed to detect coreference of this word
+                    coref_type = self.get_coref_type( fields[ Fields.UPOSTAG ], fields[ Fields.FEATS ], drop) # if we are supposed to detect coreference of this word
                     coref = Eval_coref_record( coref_id, cluster, drop_cluster, coref_type)
                     coreferents.append( coref) # output list of all pronouns, for which the coreference was detected  
         return coreferents
     
-    def get_coref_type( self, upostag, feats): # -> Coref_type
+    def get_coref_type( self, upostag, feats, drop): # -> Coref_type
         """ if the coreferent is relevant for us """
         upostag_ok  = False
         prontype_ok = False
@@ -195,8 +199,8 @@ class Evaluator:
         if ( upostag_ok and prontype_ok ):
             return Coref_type.Pronoun
         
-        if ( upostag == "VERB" ): # not all verbs represents a dropped pronoun, but herecome only such verbs
-            return Coref_type.Dropped
+        if ( upostag == "VERB" and drop ):
+            return Coref_type.Dropped  
         
         return Coref_type.Irrelevant
         
