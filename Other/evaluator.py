@@ -17,7 +17,7 @@ class Evaluator:
         recall_sum     = 0
         for name in namefile:
             gold_file_name = "test/" + name[:-1] + ".out.conllu"  # files which are going to be compared
-            auto_file_name = "test/" + name[:-1] + ".out.conllu"
+            auto_file_name = "test/" + name[:-1] + ".auto.conllu"
             try:
                 gold_file = open( gold_file_name, 'r')
             except:
