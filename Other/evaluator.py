@@ -112,16 +112,16 @@ class Evaluator:
                 recall_sum    += rec
         
         # if the results was computed for each file separately
-        if ( number_of_relevant == 0 ):
-            recall = None
-        else:
-            recall = recall_sum / number_of_relevant
-            
-        if ( number_of_selected == 0 ):
-            precision = None
-        else:
-            precision = precision_sum / number_of_selected         
-        
+        #if ( number_of_relevant == 0 ):
+        #    recall = None
+        #else:
+        #    recall = recall_sum / number_of_relevant
+        #    
+        #if ( number_of_selected == 0 ):
+        #    precision = None
+        #else:
+        #    precision = precision_sum / number_of_selected         
+        #
         #print( "Precision:  ", precision)
         #print( "Recall:     ", recall) 
         
@@ -193,14 +193,15 @@ class Evaluator:
         for feat in features:
             if ( "PronType" in feat ):
                 values = feat.split( '=')[1].split( ',')
-                for val in [ "Prs", "Rel", "Dem" ]:
+                #for val in [ "Prs", "Rel", "Dem" ]:
+                for val in [ "Rel" ]:
                     if ( val in values ):
                         prontype_ok = True        
         if ( upostag_ok and prontype_ok ):
             return Coref_type.Pronoun
         
-        if ( upostag == "VERB" and drop ):
-            return Coref_type.Dropped  
+        #if ( upostag == "VERB" and drop ):
+        #    return Coref_type.Dropped  
         
         return Coref_type.Irrelevant
         

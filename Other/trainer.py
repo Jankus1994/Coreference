@@ -13,7 +13,7 @@ class Trainer():
         self.inputfile.close()
         knn = KNeighborsClassifier()        
         knn.fit( feature_vectors, target_vector )        
-        joblib.dump(knn, model_name)
+        joblib.dump( knn, model_name)
         #mvv = joblib.load( model_name)
         #results = list( knn.predict( feature_vectors))
         #print(len([a for a in range(len(results)) if (results[a] == True and target_vector[a] == True ) ] ) )
@@ -27,7 +27,7 @@ class Trainer():
             feature_vector = []
             for field in fields[:-7]:
                 feature_vector.append( self.convert( field))
-            feature_vectors.append( feature_vector)
+            feature_vectors.append( feature_vector)         
             target_vector.append( self.convert( fields[-7]))
         return  ( feature_vectors, target_vector )
     
