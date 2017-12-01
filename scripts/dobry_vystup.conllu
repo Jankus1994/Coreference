@@ -1,0 +1,845 @@
+# newdoc
+# newpar
+# sent_id = 1
+# text = Ve vaně je pohoda Spočítejte si spotřebu vody na osobní hygienu za celý rok Denní očista těla by měla být samozřejmostí.
+1	Ve	v	ADP	RV--6----------	AdpType=Voc|Case=Loc	2	case	_	_
+2	vaně	vana	NOUN	NNFS6-----A----	Case=Loc|Gender=Fem|Number=Sing|Polarity=Pos	5	obl	_	_
+3	je	být	VERB	VB-S---3P-AA---	Mood=Ind|Number=Sing|Person=3|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	_
+4	pohoda	pohodý	NOUN	NNFS1-----A----	Case=Nom|Gender=Fem|Number=Sing|Polarity=Pos	5	nsubj	_	SpacesAfter=\s\n
+5	Spočítejte	spočítat	VERB	Vi-P---2--A----	Aspect=Perf|Mood=Imp|Number=Plur|Person=2|Polarity=Pos|VerbForm=Fin	3	conj	_	_
+6	si	se	PRON	P7-X3----------	Case=Dat|PronType=Prs|Reflex=Yes|Variant=Short	5	obl	_	_
+7	spotřebu	spotřeba	NOUN	NNFS4-----A----	Case=Acc|Gender=Fem|Number=Sing|Polarity=Pos	5	obj	_	_
+8	vody	voda	NOUN	NNFS2-----A----	Case=Gen|Gender=Fem|Number=Sing|Polarity=Pos	7	nmod	_	_
+9	na	na	ADP	RR--4----------	AdpType=Prep|Case=Acc	11	case	_	_
+10	osobní	osobní	ADJ	AAFS4----1A----	Case=Acc|Degree=Pos|Gender=Fem|Number=Sing|Polarity=Pos	11	amod	_	_
+11	hygienu	hygiena	NOUN	NNFS4-----A----	Case=Acc|Gender=Fem|Number=Sing|Polarity=Pos	7	nmod	_	_
+12	za	za	ADP	RR--4----------	AdpType=Prep|Case=Acc	14	case	_	_
+13	celý	celý	ADJ	AAIS4----1A----	Animacy=Inan|Case=Acc|Degree=Pos|Gender=Masc|Number=Sing|Polarity=Pos	14	amod	_	_
+14	rok	rok	NOUN	NNIS4-----A----	Animacy=Inan|Case=Acc|Gender=Masc|Number=Sing|Polarity=Pos	5	obl	_	SpacesAfter=\s\n
+15	Denní	denní	ADJ	AAFS1----1A----	Case=Nom|Degree=Pos|Gender=Fem|Number=Sing|Polarity=Pos	16	amod	_	_
+16	očista	očista	NOUN	NNFS1-----A----	Case=Nom|Gender=Fem|Number=Sing|Polarity=Pos	19	nsubj	_	_
+17	těla	tělo	NOUN	NNNS2-----A----	Case=Gen|Gender=Neut|Number=Sing|Polarity=Pos	16	nmod	_	_
+18	by	být	AUX	Vc-------------	Mood=Cnd|VerbForm=Fin	19	aux	_	_
+19	měla	mít	VERB	VpQW---XR-AA---	Gender=Fem,Neut|Number=Plur,Sing|Polarity=Pos|Tense=Past|VerbForm=Part|Voice=Act	5	orphan	_	_
+20	být	být	AUX	Vf--------A----	Polarity=Pos|VerbForm=Inf	21	cop	_	_
+21	samozřejmostí	samozřejmost	NOUN	NNFS7-----A----	Case=Ins|Gender=Fem|Number=Sing|Polarity=Pos	19	xcomp	_	SpaceAfter=No
+22	.	.	PUNCT	Z:-------------	_	3	punct	_	_
+
+# sent_id = 2
+# text = Většina lidí se koupe či sprchuje ráda.
+1	Většina	většina	NOUN	NNFS1-----A----	Case=Nom|Gender=Fem|Number=Sing|Polarity=Pos	4	nsubj	_	_
+2	lidí	člověk	NOUN	NNMP2-----A----	Animacy=Anim|Case=Gen|Gender=Masc|Number=Plur|Polarity=Pos	1	nmod	_	_
+3	se	se	PRON	P7-X4----------	Case=Acc|PronType=Prs|Reflex=Yes|Variant=Short	4	expl:pv	_	_
+4	koupe	koupat	VERB	VB-S---3P-AA---	Mood=Ind|Number=Sing|Person=3|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	_
+5	či	či	CCONJ	J^-------------	_	6	cc	_	_
+6	sprchuje	sprchovat	VERB	VB-S---3P-AA---	Aspect=Imp|Mood=Ind|Number=Sing|Person=3|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	4	conj	_	_
+7	ráda	rád	ADJ	ACQW------A----	Gender=Fem,Neut|Number=Plur,Sing|Polarity=Pos|Variant=Short	4	obl	_	SpaceAfter=No
+8	.	.	PUNCT	Z:-------------	_	4	punct	_	_
+
+# sent_id = 3
+# text = Formy koupání jsou různé a různě dlouhé.
+1	Formy	forma	NOUN	NNFP1-----A----	Case=Nom|Gender=Fem|Number=Plur|Polarity=Pos	4	nsubj	_	_
+2	koupání	koupání	NOUN	NNNS2-----A----	Case=Gen|Gender=Neut|Number=Sing|Polarity=Pos	1	nmod	_	_
+3	jsou	být	AUX	VB-P---3P-AA---	Mood=Ind|Number=Plur|Person=3|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	4	cop	_	_
+4	různé	různý	ADJ	AAFP1----1A----	Case=Nom|Degree=Pos|Gender=Fem|Number=Plur|Polarity=Pos	0	root	_	_
+5	a	a	CCONJ	J^-------------	_	7	cc	_	_
+6	různě	různě	ADV	Dg-------1A----	Degree=Pos|Polarity=Pos	7	advmod	_	_
+7	dlouhé	dlouhý	ADJ	AAFP1----1A----	Case=Nom|Degree=Pos|Gender=Fem|Number=Plur|Polarity=Pos	4	conj	_	SpaceAfter=No
+8	.	.	PUNCT	Z:-------------	_	4	punct	_	_
+
+# sent_id = 4
+# text = Jejich cena nás zatím moc nezajímala.
+1	Jejich	jeho	DET	PSXXXXP3-------	Number[psor]=Plur|Person=3|Poss=Yes|PronType=Prs	2	det	_	_
+2	cena	cena	NOUN	NNFS1-----A----	Case=Nom|Gender=Fem|Number=Sing|Polarity=Pos	6	nsubj	_	_
+3	nás	já	PRON	PP-P4--1-------	Case=Acc|Number=Plur|Person=1|PronType=Prs	6	obj	_	_
+4	zatím	zatím	ADV	Db-------------	_	6	advmod	_	_
+5	moc	moc	ADV	Db-------------	_	6	advmod	_	_
+6	nezajímala	zajímat	VERB	VpQW---XR-NA---	Aspect=Imp|Gender=Fem,Neut|Number=Plur,Sing|Polarity=Neg|Tense=Past|VerbForm=Part|Voice=Act	0	root	_	SpaceAfter=No
+7	.	.	PUNCT	Z:-------------	_	6	punct	_	SpacesAfter=\s\n
+
+# sent_id = 5
+# text = Jaromír Složil Hygiena nás stojí stále více peněz.
+1	Jaromír	Jaromír	PROPN	NNMS1-----A----	Animacy=Anim|Case=Nom|Gender=Masc|NameType=Giv|Number=Sing|Polarity=Pos	5	nsubj	_	_
+2	Složil	Složil	PROPN	NNMS1-----A----	Animacy=Anim|Case=Nom|Gender=Masc|NameType=Sur|Number=Sing|Polarity=Pos	1	flat	_	SpacesAfter=\s\n
+3	Hygiena	Hygien	ADJ	VsQW---XX-AP---	Aspect=Perf|Gender=Fem,Neut|Number=Plur,Sing|Polarity=Pos|Variant=Short|VerbForm=Part|Voice=Pass	1	flat:foreign	_	_
+4	nás	já	PRON	PP-P4--1-------	Case=Acc|Number=Plur|Person=1|PronType=Prs	5	obj	_	_
+5	stojí	stát	VERB	VB-S---3P-AA---	Mood=Ind|Number=Sing|Person=3|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	_
+6	stále	stále	ADV	Db-------------	_	5	advmod	_	_
+7	více	hodně	ADV	Dg-------2A----	Degree=Cmp|Polarity=Pos	5	nsubj	_	_
+8	peněz	peníze	NOUN	NNIP2-----A----	Animacy=Inan|Case=Gen|Gender=Masc|Number=Plur|Polarity=Pos	7	nmod	_	SpaceAfter=No
+9	.	.	PUNCT	Z:-------------	_	5	punct	_	_
+
+# sent_id = 6
+# text = Měli bychom se zamyslet, jak v tomto směru ušetřit.
+1	Měli	mít	VERB	VpMP---XR-AA---	Animacy=Anim|Gender=Masc|Number=Plur|Polarity=Pos|Tense=Past|VerbForm=Part|Voice=Act	0	root	_	_
+2	bychom	být	AUX	Vc-P---1-------	Mood=Cnd|Number=Plur|Person=1|VerbForm=Fin	1	aux	_	_
+3	se	se	PRON	P7-X4----------	Case=Acc|PronType=Prs|Reflex=Yes|Variant=Short	4	expl:pv	_	_
+4	zamyslet	zamyslet	VERB	Vf--------A----	Polarity=Pos|VerbForm=Inf	1	xcomp	_	SpaceAfter=No
+5	,	,	PUNCT	Z:-------------	_	10	punct	_	_
+6	jak	jak	ADV	Db-------------	PronType=Int,Rel	10	advmod	_	_
+7	v	v	ADP	RR--6----------	AdpType=Prep|Case=Loc	9	case	_	_
+8	tomto	tento	DET	PDZS6----------	Case=Loc|Gender=Masc,Neut|Number=Sing|PronType=Dem	9	det	_	_
+9	směru	směr	NOUN	NNIS6-----A----	Animacy=Inan|Case=Loc|Gender=Masc|Number=Sing|Polarity=Pos	10	obl	_	_
+10	ušetřit	ušetřit	VERB	Vf--------A----	Aspect=Perf|Polarity=Pos|VerbForm=Inf	4	xcomp	_	SpaceAfter=No
+11	.	.	PUNCT	Z:-------------	_	1	punct	_	_
+
+# sent_id = 7
+# text = Hodně lidí má při koupání zažitý stereotyp, jehož změna může jít rodinnému rozpočtu k duhu.
+1	Hodně	hodně	ADV	Dg-------1A----	Degree=Pos|Polarity=Pos	3	nsubj	_	_
+2	lidí	člověk	NOUN	NNMP2-----A----	Animacy=Anim|Case=Gen|Gender=Masc|Number=Plur|Polarity=Pos	1	nmod	_	_
+3	má	mít	VERB	VB-S---3P-AA---	Mood=Ind|Number=Sing|Person=3|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	_
+4	při	při	ADP	RR--6----------	AdpType=Prep|Case=Loc	5	case	_	_
+5	koupání	koupání	NOUN	NNNS6-----A----	Case=Loc|Gender=Neut|Number=Sing|Polarity=Pos	3	obl	_	_
+6	zažitý	zažitý	ADJ	AAIS4----1A----	Animacy=Inan|Case=Acc|Degree=Pos|Gender=Masc|Number=Sing|Polarity=Pos	7	amod	_	_
+7	stereotyp	stereotyp	NOUN	NNIS4-----A----	Animacy=Inan|Case=Acc|Gender=Masc|Number=Sing|Polarity=Pos	3	obj	_	SpaceAfter=No
+8	,	,	PUNCT	Z:-------------	_	11	punct	_	_
+9	jehož	jenž	PRON	PJZS2----------	Case=Gen|Gender=Masc,Neut|Number=Sing|PrepCase=Npr|PronType=Rel	10	nmod	_	_
+10	změna	změna	NOUN	NNFS1-----A----	Case=Nom|Gender=Fem|Number=Sing|Polarity=Pos	11	nsubj	_	_
+11	může	moci	VERB	VB-S---3P-AA---	Mood=Ind|Number=Sing|Person=3|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	7	acl	_	_
+12	jít	jít	VERB	Vf--------A----	Polarity=Pos|VerbForm=Inf	11	xcomp	_	_
+13	rodinnému	rodinný	ADJ	AAIS3----1A----	Animacy=Inan|Case=Dat|Degree=Pos|Gender=Masc|Number=Sing|Polarity=Pos	14	amod	_	_
+14	rozpočtu	rozpočet	NOUN	NNIS3-----A----	Animacy=Inan|Case=Dat|Gender=Masc|Number=Sing|Polarity=Pos	12	obj	_	_
+15	k	k	ADP	RR--3----------	AdpType=Prep|Case=Dat	16	case	_	_
+16	duhu	duhu	NOUN	NNNS3-----A----	Case=Dat|Gender=Neut|Number=Sing|Polarity=Pos	12	obl	_	SpaceAfter=No
+17	.	.	PUNCT	Z:-------------	_	3	punct	_	SpacesAfter=\s\n
+
+# sent_id = 8
+# text = Napuštěná vana 1 Čas od času neodoláte a vyšetřenou půlhodinku blahobytně proležíte ve vaně.
+1	Napuštěná	napuštěný	ADJ	AAFS1----1A----	Case=Nom|Degree=Pos|Gender=Fem|Number=Sing|Polarity=Pos	2	amod	_	_
+2	vana	vana	NOUN	NNFS1-----A----	Case=Nom|Gender=Fem|Number=Sing|Polarity=Pos	7	nsubj	_	_
+3	1	1	NUM	C=-------------	NumForm=Digit|NumType=Card	4	nummod	_	SpacesAfter=\s\n
+4	Čas	čas	NOUN	NNIXX-----A---8	Abbr=Yes|Animacy=Inan|Gender=Masc|Polarity=Pos	2	nmod	_	_
+5	od	od	ADP	RR--2----------	AdpType=Prep|Case=Gen	6	case	_	_
+6	času	čas	NOUN	NNIS2-----A----	Animacy=Inan|Case=Gen|Gender=Masc|Number=Sing|Polarity=Pos	4	nmod	_	_
+7	neodoláte	odolat	VERB	VB-P---2P-NA---	Aspect=Perf|Mood=Ind|Number=Plur|Person=2|Polarity=Neg|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	_
+8	a	a	CCONJ	J^-------------	_	12	cc	_	_
+9	vyšetřenou	vyšetřený	ADJ	AAFS4----1A----	Case=Acc|Degree=Pos|Gender=Fem|Number=Sing|Polarity=Pos	10	amod	_	_
+10	půlhodinku	půlhodina	NOUN	NNFS4-----A----	Case=Acc|Gender=Fem|Number=Sing|Polarity=Pos	12	obj	_	_
+11	blahobytně	blahobytně	ADV	Dg-------1A----	Degree=Pos|Polarity=Pos	12	advmod	_	_
+12	proležíte	proležet	VERB	VB-P---2P-AA---	Mood=Ind|Number=Plur|Person=2|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	7	conj	_	_
+13	ve	v	ADP	RV--6----------	AdpType=Voc|Case=Loc	14	case	_	_
+14	vaně	vana	NOUN	NNFS6-----A----	Case=Loc|Gender=Fem|Number=Sing|Polarity=Pos	12	obl	_	SpaceAfter=No
+15	.	.	PUNCT	Z:-------------	_	7	punct	_	_
+
+# sent_id = 9
+# text = V koupelové pěně, s trochou hudby, případně magazínem v ruce a skleničkou vína.
+1	V	v	ADP	RR--6----------	AdpType=Prep|Case=Loc	3	case	_	_
+2	koupelové	koupelový	ADJ	AAFS6----1A----	Case=Loc|Degree=Pos|Gender=Fem|Number=Sing|Polarity=Pos	3	amod	_	_
+3	pěně	pěna	NOUN	NNFS6-----A----	Case=Loc|Gender=Fem|Number=Sing|Polarity=Pos	0	root	_	SpaceAfter=No
+4	,	,	PUNCT	Z:-------------	_	6	punct	_	_
+5	s	s	ADP	RR--7----------	AdpType=Prep|Case=Ins	6	case	_	_
+6	trochou	trocha	NOUN	NNFS7-----A----	Case=Ins|Gender=Fem|Number=Sing|Polarity=Pos	3	conj	_	_
+7	hudby	hudba	NOUN	NNFS2-----A----	Case=Gen|Gender=Fem|Number=Sing|Polarity=Pos	6	nmod	_	SpaceAfter=No
+8	,	,	PUNCT	Z:-------------	_	10	punct	_	_
+9	případně	případně	ADV	Dg-------1A----	Degree=Pos|Polarity=Pos	10	cc	_	_
+10	magazínem	magazín	NOUN	NNIS7-----A----	Animacy=Inan|Case=Ins|Gender=Masc|Number=Sing|Polarity=Pos	6	conj	_	_
+11	v	v	ADP	RR--6----------	AdpType=Prep|Case=Loc	12	case	_	_
+12	ruce	ruka	NOUN	NNFS6-----A----	Case=Loc|Gender=Fem|Number=Sing|Polarity=Pos	10	nmod	_	_
+13	a	a	CCONJ	J^-------------	_	14	cc	_	_
+14	skleničkou	sklenička	NOUN	NNFS7-----A----	Case=Ins|Gender=Fem|Number=Sing|Polarity=Pos	6	conj	_	_
+15	vína	víno	NOUN	NNNS2-----A----	Case=Gen|Gender=Neut|Number=Sing|Polarity=Pos	14	nmod	_	SpaceAfter=No
+16	.	.	PUNCT	Z:-------------	_	3	punct	_	_
+
+# sent_id = 10
+# text = Je to pohoda, ale znamená nemalé výdaje.
+1	Je	být	AUX	VB-S---3P-AA---	Mood=Ind|Number=Sing|Person=3|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	3	cop	_	_
+2	to	ten	DET	PDNS1----------	Case=Nom|Gender=Neut|Number=Sing|PronType=Dem	3	nsubj	_	_
+3	pohoda	pohoda	NOUN	NNFS1-----A----	Case=Nom|Gender=Fem|Number=Sing|Polarity=Pos	0	root	_	SpaceAfter=No
+4	,	,	PUNCT	Z:-------------	_	6	punct	_	_
+5	ale	ale	CCONJ	J^-------------	_	6	cc	_	_
+6	znamená	znamenat	VERB	VB-S---3P-AA---	Aspect=Imp|Mood=Ind|Number=Sing|Person=3|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	3	conj	_	_
+7	nemalé	malý	ADJ	AAIP4----1N----	Animacy=Inan|Case=Acc|Degree=Pos|Gender=Masc|Number=Plur|Polarity=Neg	8	amod	_	_
+8	výdaje	výdaj	NOUN	NNIP4-----A----	Animacy=Inan|Case=Acc|Gender=Masc|Number=Plur|Polarity=Pos	6	obj	_	SpaceAfter=No
+9	.	.	PUNCT	Z:-------------	_	3	punct	_	_
+
+# sent_id = 11
+# text = Ve vaně 170 cm dlouhé potřebujete 120 litrů vody, z níž vám čouhá jenom hlava.
+1	Ve	v	ADP	RV--6----------	AdpType=Voc|Case=Loc	2	case	_	_
+2	vaně	vana	NOUN	NNFS6-----A----	Case=Loc|Gender=Fem|Number=Sing|Polarity=Pos	6	obl	_	_
+3	170	170	NUM	C=-------------	NumForm=Digit|NumType=Card	5	obl	_	_
+4	cm	cm`centimetr	NOUN	NNIXX-----A---8	Abbr=Yes|Animacy=Inan|Gender=Masc|Polarity=Pos	3	nmod	_	_
+5	dlouhé	dlouhý	ADJ	AAFS6----1A----	Case=Loc|Degree=Pos|Gender=Fem|Number=Sing|Polarity=Pos	2	amod	_	_
+6	potřebujete	potřebovat	VERB	VB-P---2P-AA---	Aspect=Imp|Mood=Ind|Number=Plur|Person=2|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	_
+7	120	120	NUM	C=-------------	NumForm=Digit|NumType=Card	8	nummod:gov	_	_
+8	litrů	l`litr	NOUN	NNIP2-----A----	Animacy=Inan|Case=Gen|Gender=Masc|Number=Plur|Polarity=Pos	6	obj	_	_
+9	vody	voda	NOUN	NNFS2-----A----	Case=Gen|Gender=Fem|Number=Sing|Polarity=Pos	8	nmod	_	SpaceAfter=No
+10	,	,	PUNCT	Z:-------------	_	14	punct	_	_
+11	z	z	ADP	RR--2----------	AdpType=Prep|Case=Gen	12	case	_	_
+12	níž	jenž	PRON	P9FS2----------	Case=Gen|Gender=Fem|Number=Sing|PrepCase=Pre|PronType=Rel	14	obl	_	_
+13	vám	ty	PRON	PP-P3--2-------	Case=Dat|Number=Plur|Person=2|PronType=Prs	14	obj	_	_
+14	čouhá	čouhat	VERB	VB-S---3P-AA---	Aspect=Imp|Mood=Ind|Number=Sing|Person=3|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	9	acl	_	_
+15	jenom	jenom	PART	TT-------------	_	16	advmod:emph	_	_
+16	hlava	hlava	NOUN	NNFS1-----A----	Case=Nom|Gender=Fem|Number=Sing|Polarity=Pos	14	nsubj	_	SpaceAfter=No
+17	.	.	PUNCT	Z:-------------	_	6	punct	_	_
+
+# sent_id = 12
+# text = Vana plechová se zahřeje rychle a rychle zchladne, vana litinová se chová naopak.
+1	Vana	vana	NOUN	NNFS1-----A----	Case=Nom|Gender=Fem|Number=Sing|Polarity=Pos	4	nsubj:pass	_	_
+2	plechová	plechový	ADJ	AAFS1----1A----	Case=Nom|Degree=Pos|Gender=Fem|Number=Sing|Polarity=Pos	1	amod	_	_
+3	se	se	PRON	P7-X4----------	Case=Acc|PronType=Prs|Reflex=Yes|Variant=Short	4	expl:pass	_	_
+4	zahřeje	zahřát	VERB	VB-S---3P-AA---	Mood=Ind|Number=Sing|Person=3|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	_
+5	rychle	rychle	ADV	Dg-------1A----	Degree=Pos|Polarity=Pos	4	advmod	_	_
+6	a	a	CCONJ	J^-------------	_	8	cc	_	_
+7	rychle	rychle	ADV	Dg-------1A----	Degree=Pos|Polarity=Pos	8	advmod	_	_
+8	zchladne	zchladnout	VERB	VB-S---3P-AA---	Aspect=Perf|Mood=Ind|Number=Sing|Person=3|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	4	conj	_	SpaceAfter=No
+9	,	,	PUNCT	Z:-------------	_	13	punct	_	_
+10	vana	vana	NOUN	NNFS1-----A----	Case=Nom|Gender=Fem|Number=Sing|Polarity=Pos	13	nsubj	_	_
+11	litinová	litinový	ADJ	AAFS1----1A----	Case=Nom|Degree=Pos|Gender=Fem|Number=Sing|Polarity=Pos	10	amod	_	_
+12	se	se	PRON	P7-X4----------	Case=Acc|PronType=Prs|Reflex=Yes|Variant=Short	13	expl:pv	_	_
+13	chová	chovat	VERB	VB-S---3P-AA---	Aspect=Imp|Mood=Ind|Number=Sing|Person=3|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	4	conj	_	_
+14	naopak	naopak	ADV	Db-------------	_	13	advmod	_	SpaceAfter=No
+15	.	.	PUNCT	Z:-------------	_	4	punct	_	SpacesAfter=\s\n
+
+# sent_id = 13
+# text = Naplno puštěná vanová baterie znamená, že do 4 minut máte vody dost.
+1	Naplno	naplno	ADV	Db-------------	_	2	advmod	_	_
+2	puštěná	puštěný	ADJ	AAFS1----1A----	Case=Nom|Degree=Pos|Gender=Fem|Number=Sing|Polarity=Pos	4	amod	_	_
+3	vanová	vanový	ADJ	AAFS1----1A----	Case=Nom|Degree=Pos|Gender=Fem|Number=Sing|Polarity=Pos	4	amod	_	_
+4	baterie	baterie	NOUN	NNFS1-----A----	Case=Nom|Gender=Fem|Number=Sing|Polarity=Pos	5	nsubj	_	_
+5	znamená	znamenat	VERB	VB-S---3P-AA---	Aspect=Imp|Mood=Ind|Number=Sing|Person=3|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	SpaceAfter=No
+6	,	,	PUNCT	Z:-------------	_	11	punct	_	_
+7	že	že	SCONJ	J,-------------	_	11	mark	_	_
+8	do	do	ADP	RR--2----------	AdpType=Prep|Case=Gen	10	case	_	_
+9	4	4	NUM	C=-------------	NumForm=Digit|NumType=Card	10	nummod	_	_
+10	minut	minuta	NOUN	NNFP2-----A----	Case=Gen|Gender=Fem|Number=Plur|Polarity=Pos	11	obl	_	_
+11	máte	mít	VERB	VB-P---2P-AA---	Mood=Ind|Number=Plur|Person=2|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	5	ccomp	_	_
+12	vody	voda	NOUN	NNFS2-----A----	Case=Gen|Gender=Fem|Number=Sing|Polarity=Pos	13	nmod	_	_
+13	dost	dost	ADV	Dg-------1A----	Degree=Pos|Polarity=Pos	11	obj	_	SpaceAfter=No
+14	.	.	PUNCT	Z:-------------	_	5	punct	_	_
+
+# sent_id = 14
+# text = Kalkulujme s tím, že polovina vody je studená a polovina teplá, abyste získali teplotu okolo 35 st. C.
+1	Kalkulujme	kalkulovat	VERB	Vi-P---1--A----	Aspect=Imp|Mood=Imp|Number=Plur|Person=1|Polarity=Pos|VerbForm=Fin	0	root	_	_
+2	s	s	ADP	RR--7----------	AdpType=Prep|Case=Ins	3	case	_	_
+3	tím	ten	DET	PDZS7----------	Case=Ins|Gender=Masc,Neut|Number=Sing|PronType=Dem	1	obj	_	SpaceAfter=No
+4	,	,	PUNCT	Z:-------------	_	9	punct	_	_
+5	že	že	SCONJ	J,-------------	_	9	mark	_	_
+6	polovina	polovina	NOUN	NNFS1-----A----	Case=Nom|Gender=Fem|Number=Sing|Polarity=Pos	9	nsubj	_	_
+7	vody	voda	NOUN	NNFS2-----A----	Case=Gen|Gender=Fem|Number=Sing|Polarity=Pos	6	nmod	_	_
+8	je	být	AUX	VB-S---3P-AA---	Mood=Ind|Number=Sing|Person=3|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	9	cop	_	_
+9	studená	studený	ADJ	AAFS1----1A----	Case=Nom|Degree=Pos|Gender=Fem|Number=Sing|Polarity=Pos	3	acl	_	_
+10	a	a	CCONJ	J^-------------	_	11	cc	_	_
+11	polovina	polovina	NOUN	NNFS1-----A----	Case=Nom|Gender=Fem|Number=Sing|Polarity=Pos	9	conj	_	_
+12	teplá	teplý	ADJ	AAFS1----1A----	Case=Nom|Degree=Pos|Gender=Fem|Number=Sing|Polarity=Pos	9	dep	_	SpaceAfter=No
+13	,	,	PUNCT	Z:-------------	_	16	punct	_	_
+14-15	abyste	_	_	_	_	_	_	_	_
+14	aby	aby	SCONJ	J,-------------	_	16	mark	_	_
+15	byste	být	AUX	Vc-P---2-------	Mood=Cnd|Number=Plur|Person=2|VerbForm=Fin	16	aux	_	_
+16	získali	získat	VERB	VpMP---XR-AA---	Animacy=Anim|Aspect=Perf|Gender=Masc|Number=Plur|Polarity=Pos|Tense=Past|VerbForm=Part|Voice=Act	12	advcl	_	_
+17	teplotu	teplota	NOUN	NNFS4-----A----	Case=Acc|Gender=Fem|Number=Sing|Polarity=Pos	16	obj	_	_
+18	okolo	okolo	ADP	RR--2----------	AdpType=Prep|Case=Gen	20	case	_	_
+19	35	35	NUM	C=-------------	NumForm=Digit|NumType=Card	20	nummod	_	_
+20	st	stupeň	NOUN	NNIXX-----A---8	Abbr=Yes|Animacy=Inan|Gender=Masc|Polarity=Pos	17	nmod	_	SpaceAfter=No
+21	.	.	PUNCT	Z:-------------	_	20	punct	_	_
+22	C	Celsius	NOUN	NNMXX-----A---8	Abbr=Yes|Animacy=Anim|Gender=Masc|Polarity=Pos	20	nmod	_	SpaceAfter=No
+23	.	.	PUNCT	Z:-------------	_	1	punct	_	_
+
+# sent_id = 15
+# text = Vklouznete do vany, odpočíváte, myjete se, občas v malém rozsahu použijete sprchu.
+1	Vklouznete	vklouznout	VERB	VB-P---2P-AA---	Aspect=Perf|Mood=Ind|Number=Plur|Person=2|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	_
+2	do	do	ADP	RR--2----------	AdpType=Prep|Case=Gen	3	case	_	_
+3	vany	vana	NOUN	NNFS2-----A----	Case=Gen|Gender=Fem|Number=Sing|Polarity=Pos	1	obl	_	SpaceAfter=No
+4	,	,	PUNCT	Z:-------------	_	5	punct	_	_
+5	odpočíváte	odpočívat	VERB	VB-P---2P-AA---	Aspect=Imp|Mood=Ind|Number=Plur|Person=2|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	1	conj	_	SpaceAfter=No
+6	,	,	PUNCT	Z:-------------	_	7	punct	_	_
+7	myjete	mýt	VERB	VB-P---2P-AA---	Mood=Ind|Number=Plur|Person=2|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	1	conj	_	_
+8	se	se	PRON	P7-X4----------	Case=Acc|PronType=Prs|Reflex=Yes|Variant=Short	7	obj	_	SpaceAfter=No
+9	,	,	PUNCT	Z:-------------	_	14	punct	_	_
+10	občas	občas	ADV	Db-------------	_	14	advmod	_	_
+11	v	v	ADP	RR--6----------	AdpType=Prep|Case=Loc	13	case	_	_
+12	malém	malý	ADJ	AAIS6----1A----	Animacy=Inan|Case=Loc|Degree=Pos|Gender=Masc|Number=Sing|Polarity=Pos	13	amod	_	_
+13	rozsahu	rozsah	NOUN	NNIS6-----A----	Animacy=Inan|Case=Loc|Gender=Masc|Number=Sing|Polarity=Pos	14	obl	_	_
+14	použijete	použít	VERB	VB-P---2P-AA---	Mood=Ind|Number=Plur|Person=2|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	1	conj	_	_
+15	sprchu	sprcha	NOUN	NNFS4-----A----	Case=Acc|Gender=Fem|Number=Sing|Polarity=Pos	14	obj	_	SpaceAfter=No
+16	.	.	PUNCT	Z:-------------	_	1	punct	_	_
+
+# sent_id = 16
+# text = Voda chladne.
+1	Voda	voda	NOUN	NNFS1-----A----	Case=Nom|Gender=Fem|Number=Sing|Polarity=Pos	2	nsubj	_	_
+2	chladne	chladnout	VERB	VB-S---3P-AA---	Aspect=Imp|Mood=Ind|Number=Sing|Person=3|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	SpaceAfter=No
+3	.	.	PUNCT	Z:-------------	_	2	punct	_	_
+
+# sent_id = 17
+# text = Připustíte 10 litrů horké.
+1	Připustíte	připustit	VERB	VB-P---2P-AA---	Aspect=Perf|Mood=Ind|Number=Plur|Person=2|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	_
+2	10	10	NUM	C=-------------	NumForm=Digit|NumType=Card	3	nummod:gov	_	_
+3	litrů	l`litr	NOUN	NNIP2-----A----	Animacy=Inan|Case=Gen|Gender=Masc|Number=Plur|Polarity=Pos	1	obj	_	_
+4	horké	horký	ADJ	AAFS2----1A----	Case=Gen|Degree=Pos|Gender=Fem|Number=Sing|Polarity=Pos	3	dep	_	SpaceAfter=No
+5	.	.	PUNCT	Z:-------------	_	1	punct	_	_
+
+# sent_id = 18
+# text = Pohoda končí.
+1	Pohoda	pohoda	NOUN	NNFS1-----A----	Case=Nom|Gender=Fem|Number=Sing|Polarity=Pos	2	nsubj	_	_
+2	končí	končit	VERB	VB-S---3P-AA---	Aspect=Imp|Mood=Ind|Number=Sing|Person=3|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	SpaceAfter=No
+3	.	.	PUNCT	Z:-------------	_	2	punct	_	_
+
+# sent_id = 19
+# text = Během vypouštění vany si dáte závěrečnou dvouminutovou sprchu.
+1	Během	během	ADP	RR--2----------	AdpType=Prep|Case=Gen	2	case	_	_
+2	vypouštění	vypouštění	NOUN	NNNS2-----A----	Case=Gen|Gender=Neut|Number=Sing|Polarity=Pos	5	obl	_	_
+3	vany	vana	NOUN	NNFS2-----A----	Case=Gen|Gender=Fem|Number=Sing|Polarity=Pos	2	nmod	_	_
+4	si	se	PRON	P7-X3----------	Case=Dat|PronType=Prs|Reflex=Yes|Variant=Short	5	iobj	_	_
+5	dáte	dát	VERB	VB-P---2P-AA---	Mood=Ind|Number=Plur|Person=2|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	_
+6	závěrečnou	závěrečný	ADJ	AAFS4----1A----	Case=Acc|Degree=Pos|Gender=Fem|Number=Sing|Polarity=Pos	8	amod	_	_
+7	dvouminutovou	dvouminutový	ADJ	AAFS4----1A----	Case=Acc|Degree=Pos|Gender=Fem|Number=Sing|Polarity=Pos	8	amod	_	_
+8	sprchu	sprcha	NOUN	NNFS4-----A----	Case=Acc|Gender=Fem|Number=Sing|Polarity=Pos	5	obj	_	SpaceAfter=No
+9	.	.	PUNCT	Z:-------------	_	5	punct	_	_
+
+# sent_id = 20
+# text = Po osušení vanu umyjete.
+1	Po	po	ADP	RR--6----------	AdpType=Prep|Case=Loc	2	case	_	_
+2	osušení	osušení	NOUN	NNNS6-----A----	Case=Loc|Gender=Neut|Number=Sing|Polarity=Pos	4	obl	_	_
+3	vanu	vana	NOUN	NNFS4-----A----	Case=Acc|Gender=Fem|Number=Sing|Polarity=Pos	4	obj	_	_
+4	umyjete	umýt	VERB	VB-P---2P-AA---	Mood=Ind|Number=Plur|Person=2|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	SpaceAfter=No
+5	.	.	PUNCT	Z:-------------	_	4	punct	_	_
+
+# sent_id = 21
+# text = Zítra si dáte zase.
+1	Zítra	zítra	ADV	Db-------------	_	3	advmod	_	_
+2	si	se	PRON	P7-X3----------	Case=Dat|PronType=Prs|Reflex=Yes|Variant=Short	3	obj	_	_
+3	dáte	dát	VERB	VB-P---2P-AA---	Mood=Ind|Number=Plur|Person=2|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	_
+4	zase	zase	ADV	Db-------------	_	3	advmod	_	SpaceAfter=No
+5	.	.	PUNCT	Z:-------------	_	3	punct	_	_
+
+# sent_id = 22
+# text = Pokud stojí m 3 studené vody 17 Kč včetně stočného a za m 3 vody teplé dáte 75 Kč, vykoupali jste se dost draho:
+1	Pokud	pokud	SCONJ	J,-------------	_	2	mark	_	_
+2	stojí	stát	VERB	VB-S---3P-AA---	Mood=Ind|Number=Sing|Person=3|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	21	advcl	_	_
+3	m	m`metr	NOUN	NNIXX-----A---8	Abbr=Yes|Animacy=Inan|Gender=Masc|Polarity=Pos	2	nsubj	_	_
+4	3	3	NUM	C=-------------	NumForm=Digit|NumType=Card	3	nummod	_	_
+5	studené	studený	ADJ	AAFS2----1A----	Case=Gen|Degree=Pos|Gender=Fem|Number=Sing|Polarity=Pos	6	amod	_	_
+6	vody	voda	NOUN	NNFS2-----A----	Case=Gen|Gender=Fem|Number=Sing|Polarity=Pos	3	nmod	_	_
+7	17	17	NUM	C=-------------	NumForm=Digit|NumType=Card	2	obj	_	_
+8	Kč	Kč	NOUN	NNFXX-----A----	Gender=Fem|Polarity=Pos	7	nmod	_	_
+9	včetně	včetně	ADP	RR--2----------	AdpType=Prep|Case=Gen	10	case	_	_
+10	stočného	stočné	NOUN	NNNS2-----A----	Case=Gen|Gender=Neut|Number=Sing|Polarity=Pos	2	obl	_	_
+11	a	a	CCONJ	J^-------------	_	17	cc	_	_
+12	za	za	ADP	RR--4----------	AdpType=Prep|Case=Acc	13	case	_	_
+13	m	m`metr	NOUN	NNIXX-----A---8	Abbr=Yes|Animacy=Inan|Gender=Masc|Polarity=Pos	17	obj	_	_
+14	3	3	NUM	C=-------------	NumForm=Digit|NumType=Card	13	nummod	_	_
+15	vody	voda	NOUN	NNFS2-----A----	Case=Gen|Gender=Fem|Number=Sing|Polarity=Pos	13	nmod	_	_
+16	teplé	teplý	ADJ	AAFS2----1A----	Case=Gen|Degree=Pos|Gender=Fem|Number=Sing|Polarity=Pos	15	amod	_	_
+17	dáte	dát	VERB	VB-P---2P-AA---	Mood=Ind|Number=Plur|Person=2|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	2	conj	_	_
+18	75	75	NUM	C=-------------	NumForm=Digit|NumType=Card	17	obj	_	_
+19	Kč	Kč	NOUN	NNFXX-----A----	Gender=Fem|Polarity=Pos	18	nmod	_	SpaceAfter=No
+20	,	,	PUNCT	Z:-------------	_	2	punct	_	_
+21	vykoupali	vykoupat	VERB	VpMP---XR-AA---	Animacy=Anim|Aspect=Perf|Gender=Masc|Number=Plur|Polarity=Pos|Tense=Past|VerbForm=Part|Voice=Act	0	root	_	_
+22	jste	být	AUX	VB-P---2P-AA---	Mood=Ind|Number=Plur|Person=2|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	21	aux	_	_
+23	se	se	PRON	P7-X4----------	Case=Acc|PronType=Prs|Reflex=Yes|Variant=Short	21	obj	_	_
+24	dost	dost	ADV	Dg-------1A----	Degree=Pos|Polarity=Pos	25	advmod	_	_
+25	draho	draho	ADV	Db-------------	_	21	advmod	_	SpaceAfter=No
+26	:	:	PUNCT	Z:-------------	_	21	punct	_	SpacesAfter=\s\n
+
+# sent_id = 23
+# text = Studená/litrů
+1	Studená	studený	ADJ	AAFS1----1A----	Case=Nom|Degree=Pos|Gender=Fem|Number=Sing|Polarity=Pos	0	root	_	SpaceAfter=No
+2	/	/	PUNCT	Z:-------------	_	3	punct	_	SpaceAfter=No
+3	litrů	l`litr	NOUN	NNIP2-----A----	Animacy=Inan|Case=Gen|Gender=Masc|Number=Plur|Polarity=Pos	1	dep	_	_
+
+# sent_id = 24
+# text = Teplá/litrů Napuštění vany Sprcha při mytí (2 minuty) Dopouštění vany - Sprcha závěrem (2 minuty)
+1	Teplá	teplý	ADJ	AAFS1----1A----	Case=Nom|Degree=Pos|Gender=Fem|Number=Sing|Polarity=Pos	4	amod	_	SpaceAfter=No
+2	/	/	PUNCT	Z:-------------	_	3	punct	_	SpaceAfter=No
+3	litrů	l`litr	NOUN	NNIP2-----A----	Animacy=Inan|Case=Gen|Gender=Masc|Number=Plur|Polarity=Pos	4	nmod	_	SpacesAfter=\s\n
+4	Napuštění	napuštění	NOUN	NNNS2-----A----	Case=Gen|Gender=Neut|Number=Sing|Polarity=Pos	6	nmod	_	_
+5	vany	vana	NOUN	NNFS2-----A----	Case=Gen|Gender=Fem|Number=Sing|Polarity=Pos	6	nmod	_	SpacesAfter=\s\n
+6	Sprcha	sprcha	NOUN	NNFS1-----A----	Case=Nom|Gender=Fem|Number=Sing|Polarity=Pos	0	root	_	_
+7	při	při	ADP	RR--6----------	AdpType=Prep|Case=Loc	8	case	_	_
+8	mytí	mytí	NOUN	NNNS6-----A----	Case=Loc|Gender=Neut|Number=Sing|Polarity=Pos	6	nmod	_	_
+9	(	(	PUNCT	Z:-------------	_	8	punct	_	SpaceAfter=No
+10	2	2	NUM	C=-------------	NumForm=Digit|NumType=Card	11	nummod	_	_
+11	minuty	minuta	NOUN	NNFP1-----A----	Case=Nom|Gender=Fem|Number=Plur|Polarity=Pos	8	dep	_	SpaceAfter=No
+12	)	)	PUNCT	Z:-------------	_	8	punct	_	SpacesAfter=\s\n
+13	Dopouštění	dopouštění	NOUN	NNNS1-----A----	Case=Nom|Gender=Neut|Number=Sing|Polarity=Pos	8	dep	_	_
+14	vany	vana	NOUN	NNFS2-----A----	Case=Gen|Gender=Fem|Number=Sing|Polarity=Pos	13	nmod	_	_
+15	-	-	PUNCT	Z:-------------	_	17	punct	_	SpacesAfter=\s\n
+16	Sprcha	sprcha	PROPN	NNMS2-----A----	Animacy=Anim|Case=Gen|Gender=Masc|NameType=Giv|Number=Sing|Polarity=Pos	17	nmod	_	_
+17	závěrem	závěr	NOUN	NNIS7-----A----	Animacy=Inan|Case=Ins|Gender=Masc|Number=Sing|Polarity=Pos	13	appos	_	_
+18	(	(	PUNCT	Z:-------------	_	17	punct	_	SpaceAfter=No
+19	2	2	NUM	C=-------------	NumForm=Digit|NumType=Card	20	nummod	_	_
+20	minuty	minuta	NOUN	NNFP1-----A----	Case=Nom|Gender=Fem|Number=Plur|Polarity=Pos	17	dep	_	SpaceAfter=No
+21	)	)	PUNCT	Z:-------------	_	17	punct	_	SpacesAfter=\s\n
+
+# sent_id = 25
+# text = Mytí vany Celkem Koupel ve vaně celkem = 8,58 Kč Napuštěná vana 2
+1	Mytí	mytí	NOUN	NNNS1-----A----	Case=Nom|Gender=Neut|Number=Sing|Polarity=Pos	0	root	_	_
+2	vany	vana	NOUN	NNFS2-----A----	Case=Gen|Gender=Fem|Number=Sing|Polarity=Pos	1	nmod	_	SpacesAfter=\s\n
+3	Celkem	celkem	ADV	Db-------------	_	8	advmod	_	SpacesAfter=\s\n
+4	Koupel	Koupel	NOUN	NNFS1-----A----	Case=Nom|Gender=Fem|Number=Sing|Polarity=Pos	8	nsubj	_	_
+5	ve	v	ADP	RV--6----------	AdpType=Voc|Case=Loc	6	case	_	_
+6	vaně	vana	NOUN	NNFS6-----A----	Case=Loc|Gender=Fem|Number=Sing|Polarity=Pos	4	nmod	_	_
+7	celkem	celkem	ADV	Db-------------	_	8	advmod	_	_
+8	=	=	SYM	Z:-------------	_	2	acl	_	_
+9	8	8	NUM	C=-------------	NumForm=Digit|NumType=Card	8	obj	_	SpaceAfter=No
+10	,	,	PUNCT	Z:-------------	_	11	punct	_	SpaceAfter=No
+11	58	58	NUM	C=-------------	NumForm=Digit|NumType=Card	9	conj	_	_
+12	Kč	Kč	NOUN	NNFXX-----A----	Gender=Fem|Polarity=Pos	9	nmod	_	SpacesAfter=\s\n
+13	Napuštěná	napuštěný	ADJ	AAFS1----1A----	Case=Nom|Degree=Pos|Gender=Fem|Number=Sing|Polarity=Pos	14	amod	_	_
+14	vana	vana	NOUN	NNFS1-----A----	Case=Nom|Gender=Fem|Number=Sing|Polarity=Pos	1	dep	_	_
+15	2	2	NUM	C=-------------	NumForm=Digit|NumType=Card	14	nummod	_	SpacesAfter=\s\n
+
+# sent_id = 26
+# text = Máte třeba vanu menší, sprchujete se kratší dobu, na mytí vany potřebujete minimum vody.
+1	Máte	mít	VERB	VB-P---2P-AA---	Mood=Ind|Number=Plur|Person=2|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	_
+2	třeba	třeba	ADV	Db-------------	_	3	advmod:emph	_	_
+3	vanu	vana	NOUN	NNFS4-----A----	Case=Acc|Gender=Fem|Number=Sing|Polarity=Pos	1	obj	_	_
+4	menší	malý	ADJ	AAFS4----2A----	Case=Acc|Degree=Cmp|Gender=Fem|Number=Sing|Polarity=Pos	3	amod	_	SpaceAfter=No
+5	,	,	PUNCT	Z:-------------	_	6	punct	_	_
+6	sprchujete	sprchovat	VERB	VB-P---2P-AA---	Aspect=Imp|Mood=Ind|Number=Plur|Person=2|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	1	conj	_	_
+7	se	se	PRON	P7-X4----------	Case=Acc|PronType=Prs|Reflex=Yes|Variant=Short	6	expl:pv	_	_
+8	kratší	krátký	ADJ	AAFS4----2A----	Case=Acc|Degree=Cmp|Gender=Fem|Number=Sing|Polarity=Pos	9	amod	_	_
+9	dobu	doba	NOUN	NNFS4-----A----	Case=Acc|Gender=Fem|Number=Sing|Polarity=Pos	6	obl	_	SpaceAfter=No
+10	,	,	PUNCT	Z:-------------	_	14	punct	_	_
+11	na	na	ADP	RR--4----------	AdpType=Prep|Case=Acc	12	case	_	_
+12	mytí	mytí	NOUN	NNNS4-----A----	Case=Acc|Gender=Neut|Number=Sing|Polarity=Pos	14	iobj	_	_
+13	vany	vana	NOUN	NNFS2-----A----	Case=Gen|Gender=Fem|Number=Sing|Polarity=Pos	12	nmod	_	_
+14	potřebujete	potřebovat	VERB	VB-P---2P-AA---	Aspect=Imp|Mood=Ind|Number=Plur|Person=2|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	1	conj	_	_
+15	minimum	minimum	NOUN	NNNS4-----A----	Case=Acc|Gender=Neut|Number=Sing|Polarity=Pos	14	obj	_	_
+16	vody	voda	NOUN	NNFS2-----A----	Case=Gen|Gender=Fem|Number=Sing|Polarity=Pos	15	nmod	_	SpaceAfter=No
+17	.	.	PUNCT	Z:-------------	_	1	punct	_	_
+
+# sent_id = 27
+# text = Spotřebujete celkem o 1/3 vody méně.
+1	Spotřebujete	spotřebovat	VERB	VB-P---2P-AA---	Aspect=Perf|Mood=Ind|Number=Plur|Person=2|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	_
+2	celkem	celkem	ADV	Db-------------	_	1	advmod	_	_
+3	o	o	ADP	RR--4----------	AdpType=Prep|Case=Acc	7	case	_	_
+4	1	1	NUM	C=-------------	NumForm=Digit|NumType=Card	7	nummod:gov	_	SpaceAfter=No
+5	/	/	PUNCT	Z:-------------	_	6	punct	_	SpaceAfter=No
+6	3	3	NUM	C=-------------	NumForm=Digit|NumType=Card	4	conj	_	_
+7	vody	voda	NOUN	NNFS2-----A----	Case=Gen|Gender=Fem|Number=Sing|Polarity=Pos	8	obl	_	_
+8	méně	málo	ADV	Dg-------2A----	Degree=Cmp|Polarity=Pos	1	obj	_	SpaceAfter=No
+9	.	.	PUNCT	Z:-------------	_	1	punct	_	_
+
+# sent_id = 28
+# text = Po odečtení 1/3 z předchozí ceny je to stále 5,72 Kč.
+1	Po	po	ADP	RR--6----------	AdpType=Prep|Case=Loc	2	case	_	_
+2	odečtení	odečtení	NOUN	NNNS6-----A----	Case=Loc|Gender=Neut|Number=Sing|Polarity=Pos	15	obl	_	_
+3	1	1	NUM	C=-------------	NumForm=Digit|NumType=Card	2	nummod	_	SpaceAfter=No
+4	/	/	PUNCT	Z:-------------	_	5	punct	_	SpaceAfter=No
+5	3	3	NUM	C=-------------	NumForm=Digit|NumType=Card	3	compound	_	_
+6	z	z	ADP	RR--2----------	AdpType=Prep|Case=Gen	8	case	_	_
+7	předchozí	předchozí	ADJ	AAFS2----1A----	Case=Gen|Degree=Pos|Gender=Fem|Number=Sing|Polarity=Pos	8	amod	_	_
+8	ceny	cena	NOUN	NNFS2-----A----	Case=Gen|Gender=Fem|Number=Sing|Polarity=Pos	2	nmod	_	_
+9	je	být	AUX	VB-S---3P-AA---	Mood=Ind|Number=Sing|Person=3|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	15	cop	_	_
+10	to	ten	DET	PDNS1----------	Case=Nom|Gender=Neut|Number=Sing|PronType=Dem	15	nsubj	_	_
+11	stále	stále	ADV	Db-------------	_	15	advmod	_	_
+12	5	5	NUM	C=-------------	NumForm=Digit|NumType=Card	15	nummod	_	SpaceAfter=No
+13	,	,	PUNCT	Z:-------------	_	14	punct	_	SpaceAfter=No
+14	72	72	NUM	C=-------------	NumForm=Digit|NumType=Card	12	conj	_	_
+15	Kč	Kč	NOUN	NNFXX-----A----	Gender=Fem|Polarity=Pos	0	root	_	SpaceAfter=No
+16	.	.	PUNCT	Z:-------------	_	15	punct	_	SpacesAfter=\s\n
+
+# sent_id = 29
+# text = Sprcha 1
+1	Sprcha	sprcha	NOUN	NNFS1-----A----	Case=Nom|Gender=Fem|Number=Sing|Polarity=Pos	0	root	_	_
+2	1	1	NUM	C=-------------	NumForm=Digit|NumType=Card	1	nummod	_	SpacesAfter=\s\n
+
+# sent_id = 30
+# text = Proti koupání ve vaně ušetříte.
+1	Proti	proti	ADP	RR--3----------	AdpType=Prep|Case=Dat	2	case	_	_
+2	koupání	koupání	NOUN	NNNS3-----A----	Case=Dat|Gender=Neut|Number=Sing|Polarity=Pos	5	obl	_	_
+3	ve	v	ADP	RV--6----------	AdpType=Voc|Case=Loc	4	case	_	_
+4	vaně	vana	NOUN	NNFS6-----A----	Case=Loc|Gender=Fem|Number=Sing|Polarity=Pos	2	nmod	_	_
+5	ušetříte	ušetřit	VERB	VB-P---2P-AA---	Aspect=Perf|Mood=Ind|Number=Plur|Person=2|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	SpaceAfter=No
+6	.	.	PUNCT	Z:-------------	_	5	punct	_	_
+
+# sent_id = 31
+# text = Běžnou sprchou proteče 6-12 litrů vody za minutu podle síly proudu, typu růžice apod.
+1	Běžnou	běžný	ADJ	AAFS7----1A----	Case=Ins|Degree=Pos|Gender=Fem|Number=Sing|Polarity=Pos	2	amod	_	_
+2	sprchou	sprcha	NOUN	NNFS7-----A----	Case=Ins|Gender=Fem|Number=Sing|Polarity=Pos	3	obl	_	_
+3	proteče	protéci	VERB	VB-S---3P-AA---	Mood=Ind|Number=Sing|Person=3|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	_
+4	6	6	NUM	C=-------------	NumForm=Digit|NumType=Card	7	nummod:gov	_	SpaceAfter=No
+5	-	-	PUNCT	Z:-------------	_	6	punct	_	SpaceAfter=No
+6	12	12	NUM	C=-------------	NumForm=Digit|NumType=Card	4	conj	_	_
+7	litrů	l`litr	NOUN	NNIP2-----A----	Animacy=Inan|Case=Gen|Gender=Masc|Number=Plur|Polarity=Pos	3	nsubj	_	_
+8	vody	voda	NOUN	NNFS2-----A----	Case=Gen|Gender=Fem|Number=Sing|Polarity=Pos	7	nmod	_	_
+9	za	za	ADP	RR--4----------	AdpType=Prep|Case=Acc	10	case	_	_
+10	minutu	minuta	NOUN	NNFS4-----A----	Case=Acc|Gender=Fem|Number=Sing|Polarity=Pos	3	obl	_	_
+11	podle	podle	ADP	RR--2----------	AdpType=Prep|Case=Gen	12	case	_	_
+12	síly	síla	NOUN	NNFS2-----A----	Case=Gen|Gender=Fem|Number=Sing|Polarity=Pos	3	obl	_	_
+13	proudu	proud	NOUN	NNIS2-----A----	Animacy=Inan|Case=Gen|Gender=Masc|Number=Sing|Polarity=Pos	12	nmod	_	SpaceAfter=No
+14	,	,	PUNCT	Z:-------------	_	15	punct	_	_
+15	typu	typ	NOUN	NNIS2-----A----	Animacy=Inan|Case=Gen|Gender=Masc|Number=Sing|Polarity=Pos	12	conj	_	_
+16	růžice	růžice	NOUN	NNFS2-----A----	Case=Gen|Gender=Fem|Number=Sing|Polarity=Pos	15	nmod	_	_
+17	apod	apod	ADV	Db------------8	Abbr=Yes	12	conj	_	SpaceAfter=No
+18	.	.	PUNCT	Z:-------------	_	3	punct	_	_
+
+# sent_id = 32
+# text = Počítejme 8 l/min. a sprchu 5 minut včetně seřízení teploty vody.
+1	Počítejme	počítat	VERB	Vi-P---1--A----	Aspect=Imp|Mood=Imp|Number=Plur|Person=1|Polarity=Pos|VerbForm=Fin	0	root	_	_
+2	8	8	NUM	C=-------------	NumForm=Digit|NumType=Card	3	nummod	_	_
+3	l	rok	NOUN	NNIXX-----A---8	Abbr=Yes|Animacy=Inan|Gender=Masc|Polarity=Pos	1	obj	_	SpaceAfter=No
+4	/	/	PUNCT	Z:-------------	_	5	punct	_	SpaceAfter=No
+5	min	minuta	NOUN	NNFXX-----A---8	Abbr=Yes|Gender=Fem|Polarity=Pos|Style=Rare	3	nmod	_	SpaceAfter=No
+6	.	.	PUNCT	Z:-------------	_	5	punct	_	_
+7	a	a	CCONJ	J^-------------	_	8	cc	_	_
+8	sprchu	sprcha	NOUN	NNFS4-----A----	Case=Acc|Gender=Fem|Number=Sing|Polarity=Pos	3	conj	_	_
+9	5	5	NUM	C=-------------	NumForm=Digit|NumType=Card	10	nummod:gov	_	_
+10	minut	minuta	NOUN	NNFP2-----A----	Case=Gen|Gender=Fem|Number=Plur|Polarity=Pos	1	obj	_	_
+11	včetně	včetně	ADP	RR--2----------	AdpType=Prep|Case=Gen	12	case	_	_
+12	seřízení	seřízení	NOUN	NNNS2-----A----	Case=Gen|Gender=Neut|Number=Sing|Polarity=Pos	10	nmod	_	_
+13	teploty	teplota	NOUN	NNFS2-----A----	Case=Gen|Gender=Fem|Number=Sing|Polarity=Pos	12	nmod	_	_
+14	vody	voda	NOUN	NNFS2-----A----	Case=Gen|Gender=Fem|Number=Sing|Polarity=Pos	13	nmod	_	SpaceAfter=No
+15	.	.	PUNCT	Z:-------------	_	1	punct	_	_
+
+# sent_id = 33
+# text = Voda teče stále, spotřeba je 40 litrů (napůl studená, napůl teplá).
+1	Voda	voda	NOUN	NNFS1-----A----	Case=Nom|Gender=Fem|Number=Sing|Polarity=Pos	2	nsubj	_	_
+2	teče	téci	VERB	VB-S---3P-AA---	Aspect=Imp|Mood=Ind|Number=Sing|Person=3|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	_
+3	stále	stále	ADV	Db-------------	_	2	advmod	_	SpaceAfter=No
+4	,	,	PUNCT	Z:-------------	_	8	punct	_	_
+5	spotřeba	spotřeba	NOUN	NNFS1-----A----	Case=Nom|Gender=Fem|Number=Sing|Polarity=Pos	8	nsubj	_	_
+6	je	být	AUX	VB-S---3P-AA---	Mood=Ind|Number=Sing|Person=3|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	8	cop	_	_
+7	40	40	NUM	C=-------------	NumForm=Digit|NumType=Card	8	nummod:gov	_	_
+8	litrů	l`litr	NOUN	NNIP2-----A----	Animacy=Inan|Case=Gen|Gender=Masc|Number=Plur|Polarity=Pos	2	conj	_	_
+9	(	(	PUNCT	Z:-------------	_	11	punct	_	SpaceAfter=No
+10	napůl	napůl	ADV	Db-------------	_	11	advmod	_	_
+11	studená	studený	ADJ	AAFS1----1A----	Case=Nom|Degree=Pos|Gender=Fem|Number=Sing|Polarity=Pos	8	dep	_	SpaceAfter=No
+12	,	,	PUNCT	Z:-------------	_	14	punct	_	_
+13	napůl	napůl	ADV	Db-------------	_	14	advmod	_	_
+14	teplá	teplý	ADJ	AAFS1----1A----	Case=Nom|Degree=Pos|Gender=Fem|Number=Sing|Polarity=Pos	11	conj	_	SpaceAfter=No
+15	)	)	PUNCT	Z:-------------	_	11	punct	_	SpaceAfter=No
+16	.	.	PUNCT	Z:-------------	_	2	punct	_	SpacesAfter=\s\n
+
+# sent_id = 34
+# text = Náklady: Studená voda 0,34 Kč, teplá voda 1,50 Kč.
+1	Náklady	náklad	NOUN	NNIP1-----A----	Animacy=Inan|Case=Nom|Gender=Masc|Number=Plur|Polarity=Pos	0	root	_	SpaceAfter=No
+2	:	:	PUNCT	Z:-------------	_	4	punct	_	_
+3	Studená	studený	ADJ	AAFS1----1A----	Case=Nom|Degree=Pos|Gender=Fem|Number=Sing|Polarity=Pos	4	amod	_	_
+4	voda	voda	NOUN	NNFS1-----A----	Case=Nom|Gender=Fem|Number=Sing|Polarity=Pos	1	appos	_	_
+5	0	0	NUM	C=-------------	NumForm=Digit|NumType=Card	4	conj	_	SpaceAfter=No
+6	,	,	PUNCT	Z:-------------	_	7	punct	_	SpaceAfter=No
+7	34	34	NUM	C=-------------	NumForm=Digit|NumType=Card	4	conj	_	_
+8	Kč	Kč	NOUN	NNFXX-----A----	Gender=Fem|Polarity=Pos	7	nmod	_	SpaceAfter=No
+9	,	,	PUNCT	Z:-------------	_	11	punct	_	_
+10	teplá	teplý	ADJ	AAFS1----1A----	Case=Nom|Degree=Pos|Gender=Fem|Number=Sing|Polarity=Pos	11	amod	_	_
+11	voda	voda	NOUN	NNFS1-----A----	Case=Nom|Gender=Fem|Number=Sing|Polarity=Pos	4	conj	_	_
+12	1	1	NUM	C=-------------	NumForm=Digit|NumType=Card	11	nummod	_	SpaceAfter=No
+13	,	,	PUNCT	Z:-------------	_	14	punct	_	SpaceAfter=No
+14	50	50	NUM	C=-------------	NumForm=Digit|NumType=Card	4	conj	_	_
+15	Kč	Kč	NOUN	NNFXX-----A----	Gender=Fem|Polarity=Pos	14	nmod	_	SpaceAfter=No
+16	.	.	PUNCT	Z:-------------	_	1	punct	_	SpacesAfter=\s\n
+
+# sent_id = 35
+# text = Sprcha celkem 1,84 Kč.
+1	Sprcha	sprcha	NOUN	NNFS1-----A----	Case=Nom|Gender=Fem|Number=Sing|Polarity=Pos	0	root	_	_
+2	celkem	celkem	ADV	Db-------------	_	1	dep	_	_
+3	1	1	NUM	C=-------------	NumForm=Digit|NumType=Card	2	conj	_	SpaceAfter=No
+4	,	,	PUNCT	Z:-------------	_	5	punct	_	SpaceAfter=No
+5	84	84	NUM	C=-------------	NumForm=Digit|NumType=Card	2	conj	_	_
+6	Kč	Kč	NOUN	NNFXX-----A----	Gender=Fem|Polarity=Pos	2	conj	_	SpaceAfter=No
+7	.	.	PUNCT	Z:-------------	_	1	punct	_	SpacesAfter=\s\n
+
+# sent_id = 36
+# text = Sprcha 2
+1	Sprcha	sprcha	NOUN	NNFS1-----A----	Case=Nom|Gender=Fem|Number=Sing|Polarity=Pos	0	root	_	_
+2	2	2	NUM	C=-------------	NumForm=Digit|NumType=Card	1	nummod	_	SpacesAfter=\s\n
+
+# sent_id = 37
+# text = Instalujete stop-ventil (100 Kč), kterým zastavíte průtok při mydlení či mytí vlasů.
+1	Instalujete	instalovat	VERB	VB-P---2P-AA---	Mood=Ind|Number=Plur|Person=2|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	_
+2	stop	stop	NOUN	NNIS4-----A----	Animacy=Inan|Case=Acc|Gender=Masc|Number=Sing|Polarity=Pos	4	nmod	_	SpaceAfter=No
+3	-	-	PUNCT	Z:-------------	_	2	punct	_	SpaceAfter=No
+4	ventil	ventil	NOUN	NNIS4-----A----	Animacy=Inan|Case=Acc|Gender=Masc|Number=Sing|Polarity=Pos	1	obj	_	_
+5	(	(	PUNCT	Z:-------------	_	6	punct	_	SpaceAfter=No
+6	100	100	NUM	C=-------------	NumForm=Digit|NumType=Card	4	nummod	_	_
+7	Kč	Kč	NOUN	NNFXX-----A----	Gender=Fem|Polarity=Pos	6	nmod	_	SpaceAfter=No
+8	)	)	PUNCT	Z:-------------	_	6	punct	_	SpaceAfter=No
+9	,	,	PUNCT	Z:-------------	_	11	punct	_	_
+10	kterým	který	DET	P4ZS7----------	Case=Ins|Gender=Masc,Neut|Number=Sing|PronType=Int,Rel	11	obl	_	_
+11	zastavíte	zastavit	VERB	VB-P---2P-AA---	Aspect=Perf|Mood=Ind|Number=Plur|Person=2|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	4	acl	_	_
+12	průtok	průtok	NOUN	NNIS4-----A----	Animacy=Inan|Case=Acc|Gender=Masc|Number=Sing|Polarity=Pos	11	obj	_	_
+13	při	při	ADP	RR--6----------	AdpType=Prep|Case=Loc	14	case	_	_
+14	mydlení	mydlení	NOUN	NNNS6-----A----	Case=Loc|Gender=Neut|Number=Sing|Polarity=Pos	11	obl	_	_
+15	či	či	CCONJ	J^-------------	_	16	cc	_	_
+16	mytí	mytí	NOUN	NNNS6-----A----	Case=Loc|Gender=Neut|Number=Sing|Polarity=Pos	14	conj	_	_
+17	vlasů	vlas	NOUN	NNIP2-----A----	Animacy=Inan|Case=Gen|Gender=Masc|Number=Plur|Polarity=Pos	16	nmod	_	SpaceAfter=No
+18	.	.	PUNCT	Z:-------------	_	1	punct	_	_
+
+# sent_id = 38
+# text = Spotřebujete polovinu vody proti sprše 1.
+1	Spotřebujete	spotřebovat	VERB	VB-P---2P-AA---	Aspect=Perf|Mood=Ind|Number=Plur|Person=2|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	_
+2	polovinu	polovina	NOUN	NNFS4-----A----	Case=Acc|Gender=Fem|Number=Sing|Polarity=Pos	1	obj	_	_
+3	vody	voda	NOUN	NNFS2-----A----	Case=Gen|Gender=Fem|Number=Sing|Polarity=Pos	2	nmod	_	_
+4	proti	proti	ADP	RR--3----------	AdpType=Prep|Case=Dat	5	case	_	_
+5	sprše	sprcha	NOUN	NNFS3-----A----	Case=Dat|Gender=Fem|Number=Sing|Polarity=Pos	1	obl	_	_
+6	1	1	NUM	C=-------------	NumForm=Digit|NumType=Card	5	nummod	_	SpaceAfter=No
+7	.	.	PUNCT	Z:-------------	_	1	punct	_	_
+
+# sent_id = 39
+# text = Jedno sprchování bude stát 0,92Kč.
+1	Jedno	jeden	NUM	ClNS1----------	Case=Nom|Gender=Neut|Number=Sing|NumForm=Word|NumType=Card|NumValue=1,2,3	2	nummod	_	_
+2	sprchování	sprchování	NOUN	NNNS1-----A----	Case=Nom|Gender=Neut|Number=Sing|Polarity=Pos	4	nsubj	_	_
+3	bude	být	AUX	VB-S---3F-AA---	Mood=Ind|Number=Sing|Person=3|Polarity=Pos|Tense=Fut|VerbForm=Fin|Voice=Act	4	aux	_	_
+4	stát	stát	VERB	Vf--------A----	Polarity=Pos|VerbForm=Inf	0	root	_	_
+5	0	0	NUM	C=-------------	NumForm=Digit|NumType=Card	4	obj	_	SpaceAfter=No
+6	,	,	PUNCT	Z:-------------	_	7	punct	_	SpaceAfter=No
+7	92	92	NUM	C=-------------	NumForm=Digit|NumType=Card	5	conj	_	SpaceAfter=No
+8	Kč	Kč	NOUN	NNFXX-----A----	Gender=Fem|Polarity=Pos	5	nmod	_	SpaceAfter=No
+9	.	.	PUNCT	Z:-------------	_	4	punct	_	_
+
+# sent_id = 40
+# text = Ventil se u čtyřčlenné rodiny zaplatí za 27 dnů (0,92 92x4 92x4=3,68 Kč denní úspory).
+1	Ventil	Ventit	NOUN	NNIS1-----A----	Animacy=Inan|Case=Nom|Gender=Masc|Number=Sing|Polarity=Pos	6	nsubj:pass	_	_
+2	se	se	PRON	P7-X4----------	Case=Acc|PronType=Prs|Reflex=Yes|Variant=Short	6	expl:pass	_	_
+3	u	u	ADP	RR--2----------	AdpType=Prep|Case=Gen	5	case	_	_
+4	čtyřčlenné	čtyřčlenný	ADJ	AAFS2----1A----	Case=Gen|Degree=Pos|Gender=Fem|Number=Sing|Polarity=Pos	5	amod	_	_
+5	rodiny	rodina	NOUN	NNFS2-----A----	Case=Gen|Gender=Fem|Number=Sing|Polarity=Pos	6	obl	_	_
+6	zaplatí	zaplatit	VERB	VB-S---3P-AA---	Aspect=Perf|Mood=Ind|Number=Sing|Person=3|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	_
+7	za	za	ADP	RR--4----------	AdpType=Prep|Case=Acc	9	case	_	_
+8	27	27	NUM	C=-------------	NumForm=Digit|NumType=Card	9	nummod	_	_
+9	dnů	den	NOUN	NNIP2-----A----	Animacy=Inan|Case=Gen|Gender=Masc|Number=Plur|Polarity=Pos	6	obl	_	_
+10	(	(	PUNCT	Z:-------------	_	11	punct	_	SpaceAfter=No
+11	0	0	NUM	C=-------------	NumForm=Digit|NumType=Card	6	dep	_	SpaceAfter=No
+12	,	,	PUNCT	Z:-------------	_	13	punct	_	SpaceAfter=No
+13	92	92	NUM	C=-------------	NumForm=Digit|NumType=Card	11	conj	_	_
+14	92	92	NUM	C=-------------	NumForm=Digit|NumType=Card	13	compound	_	SpaceAfter=No
+15	x	x	SYM	J*-------------	ConjType=Oper	16	cc	_	SpaceAfter=No
+16	4	4	NUM	C=-------------	NumForm=Digit|NumType=Card	14	conj	_	_
+17	92	92	NUM	C=-------------	NumForm=Digit|NumType=Card	14	conj	_	SpaceAfter=No
+18	x	x	SYM	J*-------------	ConjType=Oper	17	nmod	_	SpaceAfter=No
+19	4	4	NUM	C=-------------	NumForm=Digit|NumType=Card	18	obj	_	SpaceAfter=No
+20	=	=	SYM	Z:-------------	_	21	cc	_	SpaceAfter=No
+21	3	3	NUM	C=-------------	NumForm=Digit|NumType=Card	11	conj	_	SpaceAfter=No
+22	,	,	PUNCT	Z:-------------	_	23	punct	_	SpaceAfter=No
+23	68	68	NUM	C=-------------	NumForm=Digit|NumType=Card	11	conj	_	_
+24	Kč	Kč	NOUN	NNFXX-----A----	Gender=Fem|Polarity=Pos	23	nmod	_	_
+25	denní	denní	ADJ	AAFS2----1A----	Case=Gen|Degree=Pos|Gender=Fem|Number=Sing|Polarity=Pos	26	amod	_	_
+26	úspory	úspora	NOUN	NNFS2-----A----	Case=Gen|Gender=Fem|Number=Sing|Polarity=Pos	24	nmod	_	SpaceAfter=No
+27	)	)	PUNCT	Z:-------------	_	11	punct	_	SpaceAfter=No
+28	.	.	PUNCT	Z:-------------	_	6	punct	_	SpacesAfter=\s\n
+
+# sent_id = 41
+# text = 100: 3,68 =27 Sprcha 3
+1	100	100	NUM	C=-------------	NumForm=Digit|NumType=Card	0	root	_	SpaceAfter=No
+2	:	:	PUNCT	Z:-------------	_	3	punct	_	_
+3	3	3	NUM	C=-------------	NumForm=Digit|NumType=Card	1	conj	_	SpaceAfter=No
+4	,	,	PUNCT	Z:-------------	_	5	punct	_	SpaceAfter=No
+5	68	68	NUM	C=-------------	NumForm=Digit|NumType=Card	1	conj	_	_
+6	=	=	SYM	Z:-------------	_	8	cc	_	SpaceAfter=No
+7	27	27	NUM	C=-------------	NumForm=Digit|NumType=Card	8	nummod	_	SpacesAfter=\s\n
+8	Sprcha	sprcha	NOUN	NNFS1-----A----	Case=Nom|Gender=Fem|Number=Sing|Polarity=Pos	5	conj	_	_
+9	3	3	NUM	C=-------------	NumForm=Digit|NumType=Card	8	nummod	_	SpacesAfter=\s\n
+
+# sent_id = 42
+# text = Instalujete zahraniční růžici s poloviční spotřebou proti běžné, instalujete stop-ventil.
+1	Instalujete	instalovat	VERB	VB-P---2P-AA---	Aspect=Imp|Mood=Ind|Number=Plur|Person=2|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	_
+2	zahraniční	zahraniční	ADJ	AAFS4----1A----	Case=Acc|Degree=Pos|Gender=Fem|Number=Sing|Polarity=Pos	3	amod	_	_
+3	růžici	růžice	NOUN	NNFS4-----A----	Case=Acc|Gender=Fem|Number=Sing|Polarity=Pos	1	obj	_	_
+4	s	s	ADP	RR--7----------	AdpType=Prep|Case=Ins	6	case	_	_
+5	poloviční	poloviční	ADJ	AAFS7----1A----	Case=Ins|Degree=Pos|Gender=Fem|Number=Sing|Polarity=Pos	6	amod	_	_
+6	spotřebou	spotřeba	NOUN	NNFS7-----A----	Case=Ins|Gender=Fem|Number=Sing|Polarity=Pos	3	nmod	_	_
+7	proti	proti	ADP	RR--3----------	AdpType=Prep|Case=Dat	11	case	_	_
+8	běžné	běžný	ADJ	AAFS3----1A----	Case=Dat|Degree=Pos|Gender=Fem|Number=Sing|Polarity=Pos	11	amod	_	SpaceAfter=No
+9	,	,	PUNCT	Z:-------------	_	10	punct	_	_
+10	instalujete	instalovat	VERB	VB-P---2P-AA---	Mood=Ind|Number=Plur|Person=2|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	8	conj	_	_
+11	stop	stop	NOUN	NNIS4-----A----	Animacy=Inan|Case=Acc|Gender=Masc|Number=Sing|Polarity=Pos	13	nmod	_	SpaceAfter=No
+12	-	-	PUNCT	Z:-------------	_	11	punct	_	SpaceAfter=No
+13	ventil	ventil	NOUN	NNIS4-----A----	Animacy=Inan|Case=Acc|Gender=Masc|Number=Sing|Polarity=Pos	6	nmod	_	SpaceAfter=No
+14	.	.	PUNCT	Z:-------------	_	1	punct	_	_
+
+# sent_id = 43
+# text = Je to 300+100 Kč investic.
+1	Je	být	AUX	VB-S---3P-AA---	Mood=Ind|Number=Sing|Person=3|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	3	cop	_	_
+2	to	ten	DET	PDNS1----------	Case=Nom|Gender=Neut|Number=Sing|PronType=Dem	3	nsubj	_	_
+3	300	300	NUM	C=-------------	NumForm=Digit|NumType=Card	0	root	_	SpaceAfter=No
+4	+	+	SYM	Z:-------------	_	5	cc	_	SpaceAfter=No
+5	100	100	NUM	C=-------------	NumForm=Digit|NumType=Card	3	conj	_	_
+6	Kč	Kč	NOUN	NNFXX-----A----	Gender=Fem|Polarity=Pos	3	nmod	_	_
+7	investic	investice	NOUN	NNFP2-----A---1	Case=Gen|Gender=Fem|Number=Plur|Polarity=Pos	6	nmod	_	SpaceAfter=No
+8	.	.	PUNCT	Z:-------------	_	3	punct	_	_
+
+# sent_id = 44
+# text = Potřebujete jen 1/4 vody, takže sprcha vás stojí 0,46 Kč.
+1	Potřebujete	potřebovat	VERB	VB-P---2P-AA---	Aspect=Imp|Mood=Ind|Number=Plur|Person=2|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	_
+2	jen	jen	PART	TT-------------	_	6	advmod:emph	_	_
+3	1	1	NUM	C=-------------	NumForm=Digit|NumType=Card	6	nummod	_	SpaceAfter=No
+4	/	/	SYM	Z:-------------	_	3	nmod	_	SpaceAfter=No
+5	4	4	NUM	C=-------------	NumForm=Digit|NumType=Card	3	compound	_	_
+6	vody	voda	NOUN	NNFS2-----A----	Case=Gen|Gender=Fem|Number=Sing|Polarity=Pos	1	obj	_	SpaceAfter=No
+7	,	,	PUNCT	Z:-------------	_	11	punct	_	_
+8	takže	takže	SCONJ	J,-------------	_	11	mark	_	_
+9	sprcha	sprcha	NOUN	NNFS1-----A----	Case=Nom|Gender=Fem|Number=Sing|Polarity=Pos	11	nsubj	_	_
+10	vás	ty	PRON	PP-P4--2-------	Case=Acc|Number=Plur|Person=2|PronType=Prs	11	obj	_	_
+11	stojí	stát	VERB	VB-S---3P-AA---	Mood=Ind|Number=Sing|Person=3|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	1	advcl	_	_
+12	0	0	NUM	C=-------------	NumForm=Digit|NumType=Card	11	obj	_	SpaceAfter=No
+13	,	,	PUNCT	Z:-------------	_	14	punct	_	SpaceAfter=No
+14	46	46	NUM	C=-------------	NumForm=Digit|NumType=Card	12	conj	_	_
+15	Kč	Kč	NOUN	NNFXX-----A----	Gender=Fem|Polarity=Pos	12	nmod	_	SpaceAfter=No
+16	.	.	PUNCT	Z:-------------	_	1	punct	_	_
+
+# sent_id = 45
+# text = Při každém sprchování ušetříte 1,38 Kč.
+1	Při	při	ADP	RR--6----------	AdpType=Prep|Case=Loc	3	case	_	_
+2	každém	každý	ADJ	AANS6----1A----	Case=Loc|Degree=Pos|Gender=Neut|Number=Sing|Polarity=Pos	3	amod	_	_
+3	sprchování	sprchování	NOUN	NNNS6-----A----	Case=Loc|Gender=Neut|Number=Sing|Polarity=Pos	4	obl	_	_
+4	ušetříte	ušetřit	VERB	VB-P---2P-AA---	Aspect=Perf|Mood=Ind|Number=Plur|Person=2|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	_
+5	1	1	NUM	C=-------------	NumForm=Digit|NumType=Card	4	obj	_	SpaceAfter=No
+6	,	,	PUNCT	Z:-------------	_	7	punct	_	SpaceAfter=No
+7	38	38	NUM	C=-------------	NumForm=Digit|NumType=Card	5	conj	_	_
+8	Kč	Kč	NOUN	NNFXX-----A----	Gender=Fem|Polarity=Pos	5	nmod	_	SpaceAfter=No
+9	.	.	PUNCT	Z:-------------	_	4	punct	_	_
+
+# sent_id = 46
+# text = Investice se vrátí čtyřčlenné rodině za 72 dnů (1,38 38x4 38x4=5,52 Kč denní úspory).
+1	Investice	investice	NOUN	NNFP1-----A----	Case=Nom|Gender=Fem|Number=Plur|Polarity=Pos	3	nsubj	_	_
+2	se	se	PRON	P7-X4----------	Case=Acc|PronType=Prs|Reflex=Yes|Variant=Short	3	expl:pv	_	_
+3	vrátí	vrátit	VERB	VB-P---3P-AA---	Aspect=Perf|Mood=Ind|Number=Plur|Person=3|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	_
+4	čtyřčlenné	čtyřčlenný	ADJ	AAFS3----1A----	Case=Dat|Degree=Pos|Gender=Fem|Number=Sing|Polarity=Pos	5	amod	_	_
+5	rodině	rodina	NOUN	NNFS3-----A----	Case=Dat|Gender=Fem|Number=Sing|Polarity=Pos	3	obj	_	_
+6	za	za	ADP	RR--4----------	AdpType=Prep|Case=Acc	8	case	_	_
+7	72	72	NUM	C=-------------	NumForm=Digit|NumType=Card	8	nummod:gov	_	_
+8	dnů	den	NOUN	NNIP2-----A----	Animacy=Inan|Case=Gen|Gender=Masc|Number=Plur|Polarity=Pos	3	obl	_	_
+9	(	(	PUNCT	Z:-------------	_	10	punct	_	SpaceAfter=No
+10	1	1	NUM	C=-------------	NumForm=Digit|NumType=Card	8	nummod	_	SpaceAfter=No
+11	,	,	PUNCT	Z:-------------	_	12	punct	_	SpaceAfter=No
+12	38	38	NUM	C=-------------	NumForm=Digit|NumType=Card	19	nummod	_	_
+13	38	38	NUM	C=-------------	NumForm=Digit|NumType=Card	12	compound	_	SpaceAfter=No
+14	x	x	SYM	J*-------------	ConjType=Oper	15	cc	_	SpaceAfter=No
+15	4	4	NUM	C=-------------	NumForm=Digit|NumType=Card	13	conj	_	_
+16	38	38	NUM	C=-------------	NumForm=Digit|NumType=Card	13	compound	_	SpaceAfter=No
+17	x	x	SYM	J*-------------	ConjType=Oper	18	cc	_	SpaceAfter=No
+18	4	4	NUM	C=-------------	NumForm=Digit|NumType=Card	16	conj	_	SpaceAfter=No
+19	=	=	SYM	Z:-------------	_	10	conj	_	SpaceAfter=No
+20	5	5	NUM	C=-------------	NumForm=Digit|NumType=Card	19	conj	_	SpaceAfter=No
+21	,	,	PUNCT	Z:-------------	_	22	punct	_	SpaceAfter=No
+22	52	52	NUM	C=-------------	NumForm=Digit|NumType=Card	10	conj	_	_
+23	Kč	Kč	NOUN	NNFXX-----A----	Gender=Fem|Polarity=Pos	22	nmod	_	_
+24	denní	denní	ADJ	AAFS2----1A----	Case=Gen|Degree=Pos|Gender=Fem|Number=Sing|Polarity=Pos	25	amod	_	_
+25	úspory	úspora	NOUN	NNFS2-----A----	Case=Gen|Gender=Fem|Number=Sing|Polarity=Pos	23	nmod	_	SpaceAfter=No
+26	)	)	PUNCT	Z:-------------	_	10	punct	_	SpaceAfter=No
+27	.	.	PUNCT	Z:-------------	_	3	punct	_	SpacesAfter=\s\n
+
+# sent_id = 47
+# text = 400: 5,52 =72 Celoročně Chvíle s kalkulačkou se vyplatí.
+1	400	400	NUM	C=-------------	NumForm=Digit|NumType=Card	13	obl	_	SpaceAfter=No
+2	:	:	PUNCT	Z:-------------	_	3	punct	_	_
+3	5	5	NUM	C=-------------	NumForm=Digit|NumType=Card	1	conj	_	SpaceAfter=No
+4	,	,	PUNCT	Z:-------------	_	6	punct	_	SpaceAfter=No
+5	52	52	NUM	C=-------------	NumForm=Digit|NumType=Card	6	nummod	_	_
+6	=	=	SYM	Z:-------------	_	1	conj	_	SpaceAfter=No
+7	72	72	NUM	C=-------------	NumForm=Digit|NumType=Card	6	obj	_	SpacesAfter=\s\n
+8	Celoročně	celoročně	ADV	Dg-------1A----	Degree=Pos|Polarity=Pos	13	advmod	_	SpacesAfter=\s\n
+9	Chvíle	chvíle	NOUN	NNFS1-----A----	Case=Nom|Gender=Fem|Number=Sing|Polarity=Pos	13	nsubj	_	_
+10	s	s	ADP	RR--7----------	AdpType=Prep|Case=Ins	11	case	_	_
+11	kalkulačkou	kalkulačka	NOUN	NNFS7-----A----	Case=Ins|Gender=Fem|Number=Sing|Polarity=Pos	9	nmod	_	_
+12	se	se	PRON	P7-X4----------	Case=Acc|PronType=Prs|Reflex=Yes|Variant=Short	13	expl:pv	_	_
+13	vyplatí	vyplatit	VERB	VB-S---3P-AA---	Aspect=Perf|Mood=Ind|Number=Sing|Person=3|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	SpaceAfter=No
+14	.	.	PUNCT	Z:-------------	_	13	punct	_	_
+
+# sent_id = 48
+# text = Stačí propočítávat spotřebu vody na hygienu rodiny v různých vazbách.
+1	Stačí	stačit	VERB	VB-S---3P-AA---	Aspect=Imp|Mood=Ind|Number=Sing|Person=3|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	_
+2	propočítávat	propočítávat	VERB	Vf--------A----	Aspect=Imp|Polarity=Pos|VerbForm=Inf	1	csubj	_	_
+3	spotřebu	spotřeba	NOUN	NNFS4-----A----	Case=Acc|Gender=Fem|Number=Sing|Polarity=Pos	2	obj	_	_
+4	vody	voda	NOUN	NNFS2-----A----	Case=Gen|Gender=Fem|Number=Sing|Polarity=Pos	3	nmod	_	_
+5	na	na	ADP	RR--4----------	AdpType=Prep|Case=Acc	6	case	_	_
+6	hygienu	hygiena	NOUN	NNFS4-----A----	Case=Acc|Gender=Fem|Number=Sing|Polarity=Pos	3	nmod	_	_
+7	rodiny	rodina	NOUN	NNFS2-----A----	Case=Gen|Gender=Fem|Number=Sing|Polarity=Pos	6	nmod	_	_
+8	v	v	ADP	RR--6----------	AdpType=Prep|Case=Loc	10	case	_	_
+9	různých	různý	ADJ	AAFP6----1A----	Case=Loc|Degree=Pos|Gender=Fem|Number=Plur|Polarity=Pos	10	amod	_	_
+10	vazbách	vazba	NOUN	NNFP6-----A----	Case=Loc|Gender=Fem|Number=Plur|Polarity=Pos	2	obl	_	SpaceAfter=No
+11	.	.	PUNCT	Z:-------------	_	1	punct	_	_
+
+# sent_id = 49
+# text = Rozdíly vyplývající z různých kombinací koupele ve vaně a sprše jsou udivující.
+1	Rozdíly	rozdíl	NOUN	NNIP1-----A----	Animacy=Inan|Case=Nom|Gender=Masc|Number=Plur|Polarity=Pos	12	nsubj	_	_
+2	vyplývající	vyplývající	ADJ	AGIP1-----A----	Animacy=Inan|Aspect=Imp|Case=Nom|Gender=Masc|Number=Plur|Polarity=Pos|Tense=Pres|VerbForm=Part|Voice=Act	1	amod	_	_
+3	z	z	ADP	RR--2----------	AdpType=Prep|Case=Gen	5	case	_	_
+4	různých	různý	ADJ	AAFP2----1A----	Case=Gen|Degree=Pos|Gender=Fem|Number=Plur|Polarity=Pos	5	amod	_	_
+5	kombinací	kombinace	NOUN	NNFP2-----A----	Case=Gen|Gender=Fem|Number=Plur|Polarity=Pos	2	obl	_	_
+6	koupele	koupel	NOUN	NNFS2-----A----	Case=Gen|Gender=Fem|Number=Sing|Polarity=Pos	5	nmod	_	_
+7	ve	v	ADP	RV--6----------	AdpType=Voc|Case=Loc	8	case	_	_
+8	vaně	vana	NOUN	NNFS6-----A----	Case=Loc|Gender=Fem|Number=Sing|Polarity=Pos	6	nmod	_	_
+9	a	a	CCONJ	J^-------------	_	10	cc	_	_
+10	sprše	sprcha	NOUN	NNFS6-----A----	Case=Loc|Gender=Fem|Number=Sing|Polarity=Pos	8	conj	_	_
+11	jsou	být	AUX	VB-P---3P-AA---	Mood=Ind|Number=Plur|Person=3|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	12	cop	_	_
+12	udivující	udivující	ADJ	AGIP1-----A----	Animacy=Inan|Aspect=Imp|Case=Nom|Gender=Masc|Number=Plur|Polarity=Pos|Tense=Pres|VerbForm=Part|Voice=Act	0	root	_	SpaceAfter=No
+13	.	.	PUNCT	Z:-------------	_	12	punct	_	_
+
+# sent_id = 50
+# text = Čtyřčlenná rodina ročně vydá za různé druhy koupele: Hovoří fakta Rozdíly jsou propastné, ale vanu potřebujete.
+1	Čtyřčlenná	čtyřčlenný	ADJ	AAFS1----1A----	Case=Nom|Degree=Pos|Gender=Fem|Number=Sing|Polarity=Pos	2	amod	_	_
+2	rodina	rodina	NOUN	NNFS1-----A----	Case=Nom|Gender=Fem|Number=Sing|Polarity=Pos	4	nsubj	_	_
+3	ročně	ročně	ADV	Dg-------1A----	Degree=Pos|Polarity=Pos	4	advmod	_	_
+4	vydá	vydat	VERB	VB-S---3P-AA---	Aspect=Perf|Mood=Ind|Number=Sing|Person=3|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	_
+5	za	za	ADP	RR--4----------	AdpType=Prep|Case=Acc	7	case	_	_
+6	různé	různý	ADJ	AAIP4----1A----	Animacy=Inan|Case=Acc|Degree=Pos|Gender=Masc|Number=Plur|Polarity=Pos	7	amod	_	_
+7	druhy	druh	NOUN	NNIP4-----A----	Animacy=Inan|Case=Acc|Gender=Masc|Number=Plur|Polarity=Pos	4	obl	_	_
+8	koupele	koupel	NOUN	NNFS2-----A----	Case=Gen|Gender=Fem|Number=Sing|Polarity=Pos	7	nmod	_	SpaceAfter=No
+9	:	:	PUNCT	Z:-------------	_	10	punct	_	SpacesAfter=\s\n
+10	Hovoří	hovořit	VERB	VB-P---3P-AA---	Aspect=Imp|Mood=Ind|Number=Plur|Person=3|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	4	conj	_	_
+11	fakta	fakt	NOUN	NNNP1-----A----	Case=Nom|Gender=Neut|Number=Plur|Polarity=Pos	14	nsubj	_	SpacesAfter=\s\n
+12	Rozdíly	rozdíl	NOUN	NNIP1-----A----	Animacy=Inan|Case=Nom|Gender=Masc|Number=Plur|Polarity=Pos	11	nmod	_	_
+13	jsou	být	AUX	VB-P---3P-AA---	Mood=Ind|Number=Plur|Person=3|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	14	cop	_	_
+14	propastné	propastný	ADJ	AAIP1----1A----	Animacy=Inan|Case=Nom|Degree=Pos|Gender=Masc|Number=Plur|Polarity=Pos	10	ccomp	_	SpaceAfter=No
+15	,	,	PUNCT	Z:-------------	_	18	punct	_	_
+16	ale	ale	CCONJ	J^-------------	_	18	cc	_	_
+17	vanu	vana	NOUN	NNFS4-----A----	Case=Acc|Gender=Fem|Number=Sing|Polarity=Pos	18	obj	_	_
+18	potřebujete	potřebovat	VERB	VB-P---2P-AA---	Aspect=Imp|Mood=Ind|Number=Plur|Person=2|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	14	conj	_	SpaceAfter=No
+19	.	.	PUNCT	Z:-------------	_	4	punct	_	_
+
+# sent_id = 51
+# text = Hledáte rozumný kompromis, například: Ušetříte téměř 90 % proti variantě a).
+1	Hledáte	hledat	VERB	VB-P---2P-AA---	Aspect=Imp|Mood=Ind|Number=Plur|Person=2|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	_
+2	rozumný	rozumný	ADJ	AAIS4----1A----	Animacy=Inan|Case=Acc|Degree=Pos|Gender=Masc|Number=Sing|Polarity=Pos	3	amod	_	_
+3	kompromis	kompromis	NOUN	NNIS4-----A----	Animacy=Inan|Case=Acc|Gender=Masc|Number=Sing|Polarity=Pos	1	obj	_	SpaceAfter=No
+4	,	,	PUNCT	Z:-------------	_	7	punct	_	_
+5	například	například	ADV	Db-------------	_	7	cc	_	SpaceAfter=No
+6	:	:	PUNCT	Z:-------------	_	7	punct	_	SpacesAfter=\s\n
+7	Ušetříte	ušetřit	VERB	VB-P---2P-AA---	Mood=Ind|Number=Plur|Person=2|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	1	appos	_	_
+8	téměř	téměř	ADV	Db-------------	_	9	advmod:emph	_	_
+9	90	90	NUM	C=-------------	NumForm=Digit|NumType=Card	7	obj	_	_
+10	%	%	SYM	Z:-------------	_	9	nmod	_	_
+11	proti	proti	ADP	RR--3----------	AdpType=Prep|Case=Dat	12	case	_	_
+12	variantě	varianta	NOUN	NNFS3-----A----	Case=Dat|Gender=Fem|Number=Sing|Polarity=Pos	7	obl	_	_
+13	a	a	NOUN	NNNXX-----A----	Gender=Neut|Polarity=Pos	12	nmod	_	SpaceAfter=No
+14	)	)	PUNCT	Z:-------------	_	13	punct	_	SpaceAfter=No
+15	.	.	PUNCT	Z:-------------	_	1	punct	_	_
+
+# sent_id = 52
+# text = Tu kalkulačku budete brát asi do ruky častěji.
+1	Tu	ten	DET	PDFS4----------	Case=Acc|Gender=Fem|Number=Sing|PronType=Dem	2	det	_	_
+2	kalkulačku	kalkulačka	NOUN	NNFS4-----A----	Case=Acc|Gender=Fem|Number=Sing|Polarity=Pos	4	obj	_	_
+3	budete	být	AUX	VB-P---2F-AA---	Mood=Ind|Number=Plur|Person=2|Polarity=Pos|Tense=Fut|VerbForm=Fin|Voice=Act	4	aux	_	_
+4	brát	brát	VERB	Vf--------A----	Polarity=Pos|VerbForm=Inf	0	root	_	_
+5	asi	asi	PART	TT-------------	_	4	advmod	_	_
+6	do	do	ADP	RR--2----------	AdpType=Prep|Case=Gen	7	case	_	_
+7	ruky	ruka	NOUN	NNFS2-----A----	Case=Gen|Gender=Fem|Number=Sing|Polarity=Pos	4	obl	_	_
+8	častěji	často	ADV	Dg-------2A----	Degree=Cmp|Polarity=Pos	4	advmod	_	SpaceAfter=No
+9	.	.	PUNCT	Z:-------------	_	4	punct	_	_
+
+# sent_id = 53
+# text = Příležitost vykoupat se nevynecháte s těmito znalostmi nikde ve světě či po zaměstnání, pokud to jde.
+1	Příležitost	příležitost	NOUN	NNFS4-----A----	Case=Acc|Gender=Fem|Number=Sing|Polarity=Pos	2	obj	_	_
+2	vykoupat	vykoupat	VERB	Vf--------A----	Aspect=Perf|Polarity=Pos|VerbForm=Inf	4	xcomp	_	_
+3	se	se	PRON	P7-X4----------	Case=Acc|PronType=Prs|Reflex=Yes|Variant=Short	4	expl:pv	_	_
+4	nevynecháte	vynechat	VERB	VB-P---2P-NA---	Aspect=Perf|Mood=Ind|Number=Plur|Person=2|Polarity=Neg|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	_
+5	s	s	ADP	RR--7----------	AdpType=Prep|Case=Ins	7	case	_	_
+6	těmito	tento	DET	PDXP7----------	Case=Ins|Number=Plur|PronType=Dem	7	det	_	_
+7	znalostmi	znalost	NOUN	NNFP7-----A----	Case=Ins|Gender=Fem|Number=Plur|Polarity=Pos	4	obl	_	_
+8	nikde	nikde	ADV	Db-------------	PronType=Neg	4	advmod	_	_
+9	ve	v	ADP	RV--6----------	AdpType=Voc|Case=Loc	10	case	_	_
+10	světě	svět	NOUN	NNIS6-----A----	Animacy=Inan|Case=Loc|Gender=Masc|Number=Sing|Polarity=Pos	4	obl	_	_
+11	či	či	CCONJ	J^-------------	_	13	cc	_	_
+12	po	po	ADP	RR--6----------	AdpType=Prep|Case=Loc	13	case	_	_
+13	zaměstnání	zaměstnání	NOUN	NNNS6-----A----	Case=Loc|Gender=Neut|Number=Sing|Polarity=Pos	10	conj	_	SpaceAfter=No
+14	,	,	PUNCT	Z:-------------	_	17	punct	_	_
+15	pokud	pokud	SCONJ	J,-------------	_	17	mark	_	_
+16	to	ten	DET	PDNS1----------	Case=Nom|Gender=Neut|Number=Sing|PronType=Dem	17	nsubj	_	_
+17	jde	jít	VERB	VB-S---3P-AA---	Mood=Ind|Number=Sing|Person=3|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	4	advcl	_	SpaceAfter=No
+18	.	.	PUNCT	Z:-------------	_	4	punct	_	_
+
+# sent_id = 54
+# text = Ale obdennímu vylehávání ve vaně je už asi konec.
+1	Ale	ale	CCONJ	J^-------------	_	3	cc	_	_
+2	obdennímu	obdenní	ADJ	AANS3----1A----	Case=Dat|Degree=Pos|Gender=Neut|Number=Sing|Polarity=Pos	3	amod	_	_
+3	vylehávání	vylehávání	NOUN	NNNS3-----A----	Case=Dat|Gender=Neut|Number=Sing|Polarity=Pos	0	root	_	_
+4	ve	v	ADP	RV--6----------	AdpType=Voc|Case=Loc	5	case	_	_
+5	vaně	vana	NOUN	NNFS6-----A----	Case=Loc|Gender=Fem|Number=Sing|Polarity=Pos	3	nmod	_	_
+6	je	být	AUX	VB-S---3P-AA---	Mood=Ind|Number=Sing|Person=3|Polarity=Pos|Tense=Pres|VerbForm=Fin|Voice=Act	3	cop	_	_
+7	už	už	ADV	Db-------------	_	9	advmod:emph	_	_
+8	asi	asi	PART	TT-------------	_	9	advmod:emph	_	_
+9	konec	konec	NOUN	NNIS1-----A----	Animacy=Inan|Case=Nom|Gender=Masc|Number=Sing|Polarity=Pos	3	nsubj	_	SpaceAfter=No
+10	.	.	PUNCT	Z:-------------	_	3	punct	_	_
+
