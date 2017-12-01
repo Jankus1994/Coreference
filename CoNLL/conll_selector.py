@@ -4,21 +4,17 @@
 # selection of features for feature vectors
 
 import math
-from udapi.core.block import Block
 
-class Conll_selector( Block):
-    def process_document( self, doc):
-        self.vector_file = open("vectors.txt", 'w') # feature vectors will be printed here
-        super( Conll_selector, self).process_document( doc)
-        self.vector_file.close()
-    
-    def process_node( self, node):                
+class Conll_selector():    
+    def process_node( self, node):
+        self.feature_vectors = []
         if ( self.has_upostag( node, [ "PRON", "DET" ]) and # if we are suppose to detect coreference
             self.has_feature( node, "PronType", [ "Prs", "Rel", "Dem" ]) ):            
             self.search_candidates( node)
         
         if ( self.verb_without_subject( node) ):
             self.search_candidates( node)
+        return self.feature_vectors
         
     
     def verb_without_subject( self, node):
@@ -143,9 +139,7 @@ class Conll_selector( Block):
         feature_vector.append(candidate_bundle.bundle_id)
         feature_vector.append(candidate.ord)
         
-        for i in range( len( feature_vector) - 1):
-            self.vector_file.write( str( feature_vector[i]) + '\t')
-        self.vector_file.write( str( feature_vector[-1]) + '\n')
+        self.feature_vectors.append( feature_vector)
     
     def for_training( self):
         return True

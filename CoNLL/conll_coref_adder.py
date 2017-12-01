@@ -1,26 +1,19 @@
 # Jan Faryad
 # 23. 6. 2017
-
-from udapi.core.block import Block
-import sys
-
-class Conll_coref_adder( Block):    
-    def process_document( self, doc):   
+  
+class Conll_coref_adder():
+    def add_coreference( self, doc, id_vectors):   
         """
         main method for adding detected coreference information
         """     
         self.list_of_coreferents = []
         self.iterator = -1
-        
-        self.inputfile = open("results.txt", 'r')
-        #self.control = open("control.txt", 'a')
-        # READING INPUT AND BUILDING CLUSTERS
-        for line in self.inputfile:      
-            #self.control.write( line + "\n")
-            #processing input
-            fields = line[:-1].split( '\t')
-            pronoun_node = self.get_node( doc, int( fields[0]), int( fields[1]))
-            antecedent_node = self.get_node( doc, int( fields[2]), int( fields[3]))
+
+        # BUILDING CLUSTERS
+        for id_vector in id_vectors:      
+            #processing input list
+            pronoun_node = self.get_node( doc, int( id_vector[0]), int( id_vector[1]))
+            antecedent_node = self.get_node( doc, int( id_vector[2]), int( id_vector[3]))
             
             dropped = False
             if ( pronoun_node.upos == "VERB" ):
@@ -33,8 +26,7 @@ class Conll_coref_adder( Block):
             # connection between Coreferents
             pronoun.add_coreferent( antecedent)
             antecedent.add_coreferent( pronoun)
-                
-        self.inputfile.close()        
+                     
         
         # adding cluster id to all Coreferents (and their nodes) in the cluster
         cluster_id = 0        
@@ -42,7 +34,6 @@ class Conll_coref_adder( Block):
             if ( coref.cluster_id == -1 ): # if the cluster still doesn't have an id
                 coref.set_cluster_id( cluster_id) # recursion                
                 cluster_id += 1 
-        #self.control.close()
     
     def get_coreferent( self, node, dropped): # -> Coreferent
         """
@@ -97,8 +88,3 @@ class Conll_coreferent:
             
             for coref in self.coreferents: # recursion
                 coref.set_cluster_id( self.cluster_id)
-                
-                
-                
-                
-                
