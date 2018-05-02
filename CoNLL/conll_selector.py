@@ -1,173 +1,178 @@
 # Jan Faryad
-# 27. 4. 2017
+# 10. 3. 2018
 #
 # selection of features for feature vectors
 
 import math
 
-class Conll_selector():    
-    def process_node( self, node):
+class Conll_selector():
+    def __init__( self):
+        # to be overloaded
+        self.pron_type = None
+    def process_node( self, node, doc):
+        self.doc = doc
         self.feature_vectors = []
-        if ( self.has_upostag( node, [ "PRON", "DET" ]) and # if we are suppose to detect coreference
-            self.has_feature( node, "PronType", [ "Prs", "Rel", "Dem" ]) ):            
-            self.search_candidates( node)
-        
-        if ( self.verb_without_subject( node) ):
-            self.search_candidates( node)
+        if ( self.node_filter( node) ): # see specific selectors
+            self.search_candidate_nodes( node)
         return self.feature_vectors
-        
     
-    def verb_without_subject( self, node):
-        if ( not self.has_upostag( node, [ "VERB" ]) ): # not a verb
-            return False
-        for child in node.children:
-            if ( self.has_deprel( node, [ "nsubj", "csubj" ]) ): # has a subject
-                return False
-        return True
-    
-    def search_candidates( self, node): # void
-        """
-        selects possible coreferents of the given node
-        COULD BE CHANGED IN THE FUTURE
-        """        
-        actual_bundle = self.get_bundle( self.get_root_path( node))
-        previous_bundle = self.previous_bundle( actual_bundle)
-        next_bundle = self.next_bundle( actual_bundle)
+    def search_candidate_nodes( self, pronoun_node): # void
+        """ selects possible coreferents of the given pronoun_node """        
+        actual_bundle = pronoun_node.root.bundle
+        self.search_bundle_for_candidate_nodes( pronoun_node, actual_bundle)
         
-        self.search_bundle_for_candidates( node, actual_bundle)
-        
-        backwards_distance = 3 # 1 previous sentence
+        backwards_distance = 1 # 3 previous sentences
+        previous_bundle = self.previous_bundle( actual_bundle)                
         for i in range( backwards_distance):
             if ( previous_bundle != None ):
-                #candidates += self.search_bundle_for_candidates( node, previous_bundle)
-                self.search_bundle_for_candidates( node, previous_bundle)
+                self.search_bundle_for_candidate_nodes( pronoun_node, previous_bundle)
                 previous_bundle = self.previous_bundle( previous_bundle)
-                
-        if ( next_bundle != None ):
-            #candidates += self.search_sentence_for_candidates( node, next_sentence)
-            self.search_bundle_for_candidates( node, next_bundle)
-        # ...PPPAN... we search three sentences backwards, the actual and the next sentence
         
-    def search_bundle_for_candidates( self, node, bundle): # void
-        """
-        candidates from the given setences
-        """
+        #next_bundle = self.next_bundle( actual_bundle)
+        #if ( next_bundle != None ):
+            #self.search_bundle_for_candidate_nodes( pronoun_node, next_bundle)
+        
+    def search_bundle_for_candidate_nodes( self, pronoun_node, bundle): # void
+        """ candidate_nodes from the given setences """
         root = bundle.trees[0]
-        for candidate in root.descendants:
-            if ( self.consider_candidate( node, candidate) ):
-                #candidates.append( candidate)
-                self.print_feature_vector( node, candidate)
-        #return candidates
-    def consider_candidate( self, node, candidate): # -> bool
-        """
-        if "candidate" is an appropriate candidate for coreference with "node"
-        COULD BE CHANGED IN THE FUTURE
-        """
-        if ( node == candidate ):
+        for candidate_node in root.descendants:
+            if ( self.consider_candidate_node( pronoun_node, candidate_node) ):
+                self.build_feature_vector( pronoun_node, candidate_node)
+
+    def consider_candidate_node( self, pronoun_node, candidate_node): # -> bool
+        """ if "candidate_node" is an appropriate candidate_node for coreference with "pronoun_node" """
+        if ( pronoun_node == candidate_node ):
             return False
-        if ( self.has_upostag( candidate, [ "NOUN", "PRON", "VERB" ]) ):
-            if ( self.has_feature( node, "Case", candidate.feats['Case'].split( ',')) ):
-                return True
-            if ( self.has_feature( node, "Gender", candidate.feats['Gender'].split( ',')) ):
-                return True
-            if ( self.has_feature( node, "Number", candidate.feats['Number'].split( ',')) ):
-                return True          
+        # if "candidate_node" has an aprropriate POS - it differs according to pronoun type of "pronoun_node"
+        # specifc selectors have different list of possible upostags
+        if ( candidate_node.upos in self.possible_candidate_upostags ):            
+            return True          
         return False
-    def print_feature_vector( self, node, candidate): # void
-        """
-        for now, list of bools, but ints (distances) are also considerable
-        !!! SHOULD BE CHANGED IN THE FUTURE !!!
-        """
+    
+    def build_feature_vector( self, pronoun_node, candidate_node): # void
+        """selecting and printing features for the given pair pronoun_node-candidate_node """
         feature_vector = []
-        node_root_path = self.get_root_path( node)
-        candidate_root_path = self.get_root_path( candidate)
-        node_bundle = self.get_bundle( node_root_path)
-        candidate_bundle = self.get_bundle( candidate_root_path)
-        same_sentence = ( node_bundle == candidate_bundle )
+        pronoun_node_root_path = self.get_root_path( pronoun_node)
+        candidate_node_root_path = self.get_root_path( candidate_node)
+        pronoun_node_bundle = pronoun_node.root.bundle
+        candidate_node_bundle = candidate_node.root.bundle
+        same_sentence = ( pronoun_node_bundle == candidate_node_bundle )
         
+        #
         # distances
         feature_vector.append( same_sentence)
+        
         if ( same_sentence ):
-            feature_vector.append( int( math.fabs( node.ord - candidate.ord)))
+            feature_vector.append( int( math.fabs( pronoun_node.ord - candidate_node.ord)))
         else:
-            feature_vector.append( int( math.fabs( int( node_bundle.bundle_id) - int( candidate_bundle.bundle_id))))
+            feature_vector.append( int( math.fabs( int( pronoun_node_bundle.bundle_id) - int( candidate_node_bundle.bundle_id))))
         
-        node_depth = self.get_depth( node_root_path)
-        candidate_depth = self.get_depth( candidate_root_path)
-        feature_vector.append( node_depth)
-        feature_vector.append( candidate_depth)
-        feature_vector.append( int( math.fabs( node_depth - candidate_depth)))
-        ccs_depth = self.get_ccs_depth( node_root_path, candidate_root_path)
-        feature_vector.append( ccs_depth)
-        feature_vector.append( int( math.fabs( node_depth - ccs_depth)) + int( math.fabs( ccs_depth - candidate_depth))) # compound distance
-
-        anaphoric_pronoun = node.ord > candidate.ord # the pronoun is after its antecedent - anaphora
+        pronoun_node_depth = self.get_depth( pronoun_node_root_path)
+        candidate_node_depth = self.get_depth( candidate_node_root_path)
+        feature_vector.append( pronoun_node_depth)
+        feature_vector.append( candidate_node_depth)
+        feature_vector.append( int( math.fabs( pronoun_node_depth - candidate_node_depth)))
+        # common depth
+        common_depth = self.get_common_depth( pronoun_node_root_path, candidate_node_root_path)
+        feature_vector.append( common_depth)
+        # compound distance - length of the path joining the pronoun_nodes
+        feature_vector.append( int( math.fabs( pronoun_node_depth - common_depth)) + int( math.fabs( common_depth - candidate_node_depth)))
+        
+        anaphoric_pronoun = ( int( pronoun_node_bundle.bundle_id), pronoun_node.ord ) > ( int( candidate_node_bundle.bundle_id), candidate_node.ord ) # the pronoun is after its antecedent - anaphora
         feature_vector.append( same_sentence and anaphoric_pronoun)
-        
+        #
         # grammar
-        # ? not only bool for equality, but also categories ?
-        feature_vector.append( self.has_feature( node, "Case", candidate.feats['Case'].split( ','))) # same case
-        feature_vector.append( self.has_feature( node, "Gender", candidate.feats['Gender'].split( ','))) # same gender
-        feature_vector.append( self.has_feature( node, "Number", candidate.feats['Number'].split( ','))) # same number
-        feature_vector.append( self.has_feature( node, "Person", candidate.feats['Person'].split( ','))) # same person
-        
+        feature_vector.append( self.feature_equality( candidate_node, pronoun_node, "Case")) # same case
+        feature_vector.append( self.feature_equality( candidate_node, pronoun_node, "Gender")) # same gender
+        feature_vector.append( self.feature_equality( candidate_node, pronoun_node, "Number")) # same number
+        feature_vector.append( self.feature_equality( candidate_node, pronoun_node, "Person")) # same person
+
         # pronoun
-        feature_vector.append( self.has_feature( node, "PronType", ["Dem"])) # demonstrative
-        feature_vector.append( self.has_feature( node, "PronType", ["Prs"])) # personal
-        feature_vector.append( self.has_feature( node, "PronType", ["Rel"])) # relative
-        feature_vector.append( self.has_feature( node, "Reflex", ["Yes"])) # reflexive
-        feature_vector.append( self.has_feature( node, "Poss", ["Yes"])) # possessive        
-        
-        # candidate
+        feature_vector.append( "Dem" in pronoun_node.feats[ "PronType" ]) # demonstrative
+        feature_vector.append( "Prs" in pronoun_node.feats[ "PronType" ]) # personal
+        feature_vector.append( "Rel" in pronoun_node.feats[ "PronType" ]) # relative
+        feature_vector.append( "Yes" in pronoun_node.feats[ "Reflex" ]) # reflexive
+        feature_vector.append( "Yes" in pronoun_node.feats[ "Poss" ]) # possessive        
+
+        # candidate_node
         # part of speech
-        feature_vector.append( candidate.upos == "NOUN" )
-        feature_vector.append( candidate.upos == "PRON" )
-        feature_vector.append( candidate.upos == "VERB" )
-        # function in the sentence
-        feature_vector.append( candidate.udeprel == "nsubj" or  candidate.udeprel == "csubj" ) # subject        
+        feature_vector.append( candidate_node.upos == "NOUN" )
+        feature_vector.append( candidate_node.upos == "PRON" )
+        feature_vector.append( candidate_node.upos == "VERB" )
+        feature_vector.append( candidate_node.upos == "DET" )
+        feature_vector.append( candidate_node.upos == "PROPN" )
+        feature_vector.append( candidate_node.upos == "AUX" )
+        feature_vector.append( candidate_node.upos == "ADP" )
+        feature_vector.append( candidate_node.upos == "CCONJ" )
+        feature_vector.append( candidate_node.upos == "SCONJ" )
+        feature_vector.append( candidate_node.upos == "ADV" )
+        feature_vector.append( candidate_node.upos == "PUNCT" )
+        # deprels - sometimes it can have a form of "___:poss" et., so checking a substrig is better than equality
+        feature_vector.append( "nsubj" in candidate_node.udeprel )
+        feature_vector.append( "obj" in candidate_node.udeprel )
+        feature_vector.append( "iobj" in candidate_node.udeprel )
+        feature_vector.append( "csubj" in candidate_node.udeprel )
+        feature_vector.append( "ccomp" in candidate_node.udeprel )
+        feature_vector.append( "xcomp" in candidate_node.udeprel )
+        feature_vector.append( "nmod" in candidate_node.udeprel )
+        feature_vector.append( "acl" in candidate_node.udeprel )
+        feature_vector.append( "compound" in candidate_node.udeprel )
+        feature_vector.append( "aux" in candidate_node.udeprel )
+        feature_vector.append( "det" in candidate_node.udeprel )
+        feature_vector.append( "root" in candidate_node.udeprel )        
+
+        # numbers
+        feature_vector.append( "Sing" in pronoun_node.feats[ "Number" ])
+        feature_vector.append( "Plur" in pronoun_node.feats[ "Number" ])
+        feature_vector.append( "Ptan" in pronoun_node.feats[ "Number" ])
+        feature_vector.append( "Sing" in candidate_node.feats[ "Number" ])
+        feature_vector.append( "Plur" in candidate_node.feats[ "Number" ])
+        feature_vector.append( "Ptan" in candidate_node.feats[ "Number" ])
+        
+        # genders
+        feature_vector.append( "Masc" in pronoun_node.feats[ "Gender" ])
+        feature_vector.append( "Fem"  in pronoun_node.feats[ "Gender" ])
+        feature_vector.append( "Neut" in pronoun_node.feats[ "Gender" ])
+        feature_vector.append( "Com"  in pronoun_node.feats[ "Gender" ])
+        feature_vector.append( "Masc" in candidate_node.feats[ "Gender" ])
+        feature_vector.append( "Fem"  in candidate_node.feats[ "Gender" ])
+        feature_vector.append( "Neut" in candidate_node.feats[ "Gender" ])
+        feature_vector.append( "Com"  in candidate_node.feats[ "Gender" ])                
+        
+        # features for specific pronoun type - see specific selectors
+        self.specific_features( pronoun_node, candidate_node, feature_vector) # void
         
         # target_value
-        if ( self.for_training() ):
-            feature_vector.append( self.are_coreferents( node, candidate))
+        if ( self.for_training() ): # only if we are selecting features for training, not for prediction
+            feature_vector.append( self.are_coreferents( pronoun_node, candidate_node))
         
-        feature_vector.append(node.form)        
-        feature_vector.append(candidate.form)
+        # word forms - only not used by machine learning model, only for human orientation in the data
+        feature_vector.append(pronoun_node.form)        
+        feature_vector.append(candidate_node.form)
         
-        feature_vector.append(node_bundle.bundle_id)
-        feature_vector.append(node.ord)
-        
-        feature_vector.append(candidate_bundle.bundle_id)
-        feature_vector.append(candidate.ord)
+        # IDs of both pronoun_nodes, used only with prediction - if the coreference is recognized, it is added to the pronoun_nodes with these IDs
+        feature_vector.append(pronoun_node_bundle.bundle_id)
+        feature_vector.append(pronoun_node.ord)        
+        feature_vector.append(candidate_node_bundle.bundle_id)
+        feature_vector.append(candidate_node.ord)
         
         self.feature_vectors.append( feature_vector)
     
+    def node_filter( self, pronoun_node):        
+        """ filter of pronoun pronoun_nodes and candidate_node pronoun_nodes - to be overloaded in specific selectors """
+        pass    
+
+    def specific_features( self, pronoun_node, candidate_node, feature_vector): # void
+        """ add som pronoun-type-specific features, see specific selectors """
+        pass
+    
     def for_training( self):
-        return True
+        """ if the selecor is supposed for training -> the coerference information will be used, or for prediction -> it won't """
+        pass
     
     ## ## ## complementary interface
     
-    def has_upostag( self, node, list_of_possible_upostags): # -> bool
-        """
-        controls if the node's upostag is on of the possible ones
-        """
-        return ( node.upos in list_of_possible_upostags )
-    
-    def has_feature( self, node, feature_name, list_of_possible_values): # -> bool
-        """
-        controls if the node has the given feature and if one of it's values is possible
-        """
-        list_of_real_values = node.feats[ feature_name ].split( ',')
-        return ( len( set( list_of_real_values) & set( list_of_possible_values) ) > 0 )
-    
-    def has_deprel( self, node, list_of_possible_deprels): # -> bool
-        """
-        controls if the node's deprel is on of the possible ones
-        """     
-        return ( node.deprel in list_of_possible_deprels )
-        
-    def get_bundle( self, root_path):
-        root = root_path[0]
-        return root.bundle
+    # neighbouring bundles
     def previous_bundle( self, bundle):
         bundle_id = int( bundle.bundle_id)
         if ( bundle_id > 1 ):
@@ -178,32 +183,55 @@ class Conll_selector():
         doc = bundle.document()
         if ( bundle_id < len( doc.bundles) ):
             return doc.bundles[ bundle_id ] # bundles are indexed from 1, lists from 0    
-    def are_coreferents( self, node, candidate): # -> bool
-        """
-        if two nodes are in the same coreference cluster
-        """
-        coref_1 = node.misc['Coref']
-        drop_coref_1 = node.misc['Drop_coref']
-        coref_2 = candidate.misc['Coref']
-        drop_coref_2 = candidate.misc['Drop_coref']
+    
+    # coreference chcecking
+    def are_coreferents( self, pronoun_node, candidate_node): # -> bool
+        """ if two pronoun_nodes are in the same coreference cluster """
+        coref_1 = pronoun_node.misc['Coref']
+        drop_coref_1 = pronoun_node.misc['Drop_coref']
+        coref_2 = candidate_node.misc['Coref']
+        drop_coref_2 = candidate_node.misc['Drop_coref']
+
+        
         for c in [ coref_1, drop_coref_1 ]:
             if ( c != "" and c in [ coref_2, drop_coref_2 ] ):                
                 return True
-        return False     
+        return False        
     
-    def get_depth( self, root_path):
-        return len( root_path) - 1
-    def get_ccs_depth( self, root_path_1, root_path_2): # closest common supernode
-        it = 0
-        while ( it < len( root_path_1) and it < len( root_path_2) and root_path_1[it] == root_path_2[it] ):
-            it += 1
-        return it - 1        
-    
-    def get_root_path(self, node):
+    def get_root_path(self, node): # -> list of udapi nodes
+        """ list of nodes on the path from the given node to the root, including both ending nodes """
         root_path = [ node ]
         n = node        
         while ( not n.is_root() ):            
             n = n.parent
             root_path = [ n ] + root_path
-        return root_path    
+        return root_path           
+    
+    def get_depth( self, root_path):
+        return len( root_path) - 1
+    def get_common_depth( self, root_path_1, root_path_2):
+        """ depth of the closest common ancestor = depth of the smallest subtree includnig both nodes """
+        it = 0
+        while ( it < len( root_path_1) and it < len( root_path_2) and root_path_1[it] == root_path_2[it] ):
+            it += 1
+        return it - 1 
+    
+    def feature_equality( self, node_1, node_2, feature):
+        """ if the two nodes (could) have the same value in the given category  """
+        feat_1 = self.get_feature( node_1, feature)
+        feat_2 = self.get_feature( node_2, feature)
+        # if the feature is not present, it can mean both that the node doesn't have it or that it has it, but with no specific value, so all the values are possible
+        if ( feat_1 == "" or feat_2 == "" ):
+            return True
+        feat_list_1 = feat_1.split( ',')
+        feat_list_2 = feat_2.split( ',')
+        intersection = set( feat_list_1) & set( feat_list_2)
+        return ( len( intersection) > 0 )
+    
+    def get_feature( self, node, feature):
+        # if a pronoun is possessive, we take [psor] features, not the main ones
+        if ( node.feats[ "Poss" ] == "Yes" ):
+            if ( feature in [ "Gender", "Number" ]  ):
+                return node.feats[ feature + "[psor]"]
+        return node.feats[ feature ]    
     
