@@ -1,31 +1,27 @@
 # Jan Faryad
 # 29. 6. 2017
 #
-# building a matching between words in OntoNotes and CoNLL-U files
+# first part of onto cooref conversion: building a matching between words in OntoNotes and CoNLL-U files
 
-class Onto_word_correspondence:
-    def __init__( self, onto_input, conll_doc):
-        """
-        onto input ... onf file
-        conll doc ... Document, see udapi
-        """
-        self.onto_input = onto_input
-        self.conll_doc = conll_doc        
-        
-        self.are_leaves = False # we are readig information about individual words called Leaves
-                                # (there are also other blocks of information in the onf file)
-        
-    def create_correspondence( self):
+from udapi.block.demo.Coreference.Conv.conv import Conv_word_correspondence
+
+class Onto_word_correspondence( Conv_word_correspondence):
+    def execute( self, filename, udapi_doc):
         """
         main method, called from outside
         it creates two lists of words (for conll file and for onf file) and then builds a bijection based on comparing of forms
         """
+        # initialization
+        onto_input = open( filename + ".onf", 'r')  
+        are_leaves = False # we are readig information about individual words called Leaves
+                           # (there are also other blocks of information in the onf file)        
+        
         # creating two lists
         conll_words = []
         onto_words = []               
         
         # conll
-        for bundle in self.conll_doc.bundles: # iterating through nodes
+        for bundle in udapi_doc.bundles: # iterating through nodes
             for root in bundle.trees:
                 sent_ID = root.sent_id
                 for node in root.descendants:                                               
@@ -37,13 +33,13 @@ class Onto_word_correspondence:
         
         # onf (ontonotes)
         sent_ID = -1 # numbering from 0
-        for  onto_line in self.onto_input:
+        for  onto_line in onto_input:
             if ( "Leaves:" in onto_line ): # beginning of the "Leaves" section
-                self.are_leaves = True
+                are_leaves = True
                 sent_ID += 1
-            elif ( self.are_leaves and onto_line == "\n" ): # end of the "Leaves" section
-                self.are_leaves = False          
-            elif ( self.are_leaves ): # line in the "Leaves" section
+            elif ( are_leaves and onto_line == "\n" ): # end of the "Leaves" section
+                are_leaves = False          
+            elif ( are_leaves ): # line in the "Leaves" section
                 split_line = onto_line.split( ' ')
                 word_ID = None             
                 form = None
@@ -90,4 +86,5 @@ class Onto_word_correspondence:
             conll_index += 1
             onto_index += 1 
         
+        onto_input.close()
         return list_of_corresponding_words
