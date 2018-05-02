@@ -1,23 +1,24 @@
-import sys
+""" Extraction of plain text frm PDT .w file (in XML format) """
 
+import sys
 from udapi.block.demo.Coreference.Conv.conv import Conv_text_converter
 from udapi.block.demo.Coreference.Other.auxiliaries import get_interstring
 
 class Pdt_text_converter( Conv_text_converter):
     def convert_file( self, input_file, output_file):
-        text = ""
         actual_word = ""
-        new_para = False
         new_word = False
-        for line in input_file:
-            if ( "</para>" in line ):
-                new_para = True
-            elif ( "<para>" in line and new_para ):
-                output_file.write( '\n')
-                new_para = False
-            
-            elif ( "<w " in line ):
+        sent_id = None
+        for line in input_file:        
+            if ( "<w " in line ): # eg. <w id="w-cmpr9410-009-p3s1w1">
                 new_word = True
+                id_string = get_interstring( line, '"', '"') # eg. w-cmpr9410-009-p3s1w1
+                word_id = id_string.split( '-')[-1] # eg. p3s1w1
+                new_sent_id = get_interstring( word_id, 'p', 'w') # the paragraph number should be also a part of sent id, because if there were only one sentence in the paragraph, there would be two sentences with id "1" next to each other, but the paragraph number would differ
+                if ( new_sent_id != sent_id ): # break line at new sentence - we need one sentence per line
+                    if ( sent_id != None ): # except the first one
+                        output_file.write( '\n')
+                    sent_id = new_sent_id
             elif ( "</w>" in line and new_word ):
                 output_file.write( actual_word)
                 actual_word = ""
@@ -29,29 +30,10 @@ class Pdt_text_converter( Conv_text_converter):
             elif ( "<no_space_after>" in line ):
                 value = get_interstring( line, '>', '<')
                 if ( value == "1" ):
-                    actual_word = actual_word[:-1]
-        output_file.write( text)       
-
-# name of the file
-#name = "cmpr9410_001" # train 1
-#name = "lnd94103_052" # train 8
-#name = "ln94206_32" # train 5
-#name = "cmpr9410_032" # train 2
-#name = "ln94204_7" # train 2
-#name = "mf930713_046" # train 2
-#name = "ln94210_105" # train 2
-#name = "ln95048_134" # train 3
-#name = "mf920922_131" # train 7
-#name = "mf930713_085" # train 1
-#name = "mf930713_118" # train 3
-#name = "ln95048_117" # train 6
-#name = "ln94206_62" # train 8
-
-#input_file_name = path + name + ".w"
-#output_file_name = path + name + ".txt"
+                    actual_word = actual_word[:-1]     
 
 if ( len( sys.argv) == 3 ):
-    c = Pdt_text_converter( sys.argv[1], sys.argv[2])
+    Pdt_text_converter( sys.argv[1], sys.argv[2])
 
 
 

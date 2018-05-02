@@ -1,6 +1,6 @@
 # Jan Faryad
 #
-# a component for obtaining the information about coreference from pdt files
+# the second component of pdt coref conversion for obtaining the information about coreference from pdt files
 
 from udapi.block.demo.Coreference.Conv.conv import Conv_coreference_getter
 from udapi.block.demo.Coreference.PDT.pdt_coreferent import Pdt_coreferent
@@ -117,7 +117,7 @@ class Pdt_coreference_getter( Conv_coreference_getter):
             line = self.pdt_t_input.readline()
             coref_ID = get_interstring( line, '>', '<')
         #elif ( "<coref_special" in first_line ):
-        #    pass # segments or exophorae - they don't refere to any word in file
+        #    pass # segments or exophorae - they don't refere to any word in the file
 
         coref_type = self.get_node_type( coref_ID) # 
         
