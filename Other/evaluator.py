@@ -8,7 +8,7 @@ from udapi.block.demo.Coreference.CoNLL.conll_fields import Fields
 from enum import Enum
 
 class Evaluator:
-    def evaluate_all( self, namefile_name):
+    def evaluate_all( self, lang, namefile_name):
         """ Evaluation of more filse, whose name are stored in namefile_name """
         namefile = open( namefile_name, 'r')
         gold_coref_sum = 0 # from these values the results are computed
@@ -16,8 +16,9 @@ class Evaluator:
         precision_sum  = 0
         recall_sum     = 0
         for name in namefile:
-            gold_file_name = "test/" + name[:-1] + ".out.conllu"  # files which are going to be compared
-            auto_file_name = "test/" + name[:-1] + ".auto.conllu"
+            #print(name)
+            gold_file_name = lang + "_test/" + name[:-1] + ".out.conllu"  # files which are going to be compared
+            auto_file_name = lang + "_test/" + name[:-1] + ".auto.conllu"
             try:
                 gold_file = open( gold_file_name, 'r')
             except:
@@ -30,6 +31,10 @@ class Evaluator:
                 break
             
             ( number_of_gold_corefs, number_of_auto_corefs, precision, recall) = self.evaluate( gold_file, auto_file) # comparision of this pair
+            
+            #if ( number_of_gold_corefs > 0 ):
+            #    print( gold_file_name, number_of_gold_corefs)
+            
             gold_coref_sum += number_of_gold_corefs
             auto_coref_sum += number_of_auto_corefs
             precision_sum  += precision
@@ -43,18 +48,26 @@ class Evaluator:
         print( "Auto coreferents:   ", auto_coref_sum)
         print("")
         
+        rounding_digits = 1
+        
         if ( gold_coref_sum == 0 ):
             recall = None
         else:
-            recall = recall_sum / gold_coref_sum
+            recall = round( recall_sum / gold_coref_sum * 100, rounding_digits)
             
         if ( auto_coref_sum == 0 ):
             precision = None
         else:
-            precision = precision_sum / auto_coref_sum
+            precision = round( precision_sum / auto_coref_sum * 100, rounding_digits)
+            
+        if ( precision != None and recall != None and precision * recall != 0):
+            f1_score = round( 2 * precision * recall / ( precision + recall ), rounding_digits)
+        else:
+            f1_score = None
         
         print( "Precision:  ", precision)
-        print( "Recall:     ", recall)      
+        print( "Recall:     ", recall)
+        print( "F1 score:   ", f1_score) 
                 
         
     def evaluate( self, gold_input, auto_input):     
@@ -84,6 +97,7 @@ class Evaluator:
             if ( gold_coref_list ):
                 number_of_relevant += 1
                 gold_coref = gold_coref_list[0]
+                #print( gold_coref.coref_id)
             
             auto_coref_list = [ coref for coref in relevant_auto_coreferents if coref.coref_id == coref_id ]
             if ( auto_coref_list ):
@@ -131,6 +145,9 @@ class Evaluator:
         """ counts precision and recall of """
         # "-1" in the next: not counting the actual coreferent
         size_1     = len( cluster_1.coref_ids) - 1
+        #print( cluster_1.coref_ids)
+        #print( cluster_2.coref_ids)
+        #print("")
         size_2     = len( cluster_2.coref_ids) - 1
         inter_size = len( set( cluster_1.coref_ids) & set( cluster_2.coref_ids)) - 1        
         prec = inter_size / float( size_1)
@@ -193,8 +210,10 @@ class Evaluator:
         for feat in features:
             if ( "PronType" in feat ):
                 values = feat.split( '=')[1].split( ',')
-                #for val in [ "Prs", "Rel", "Dem" ]:
-                for val in [ "Rel" ]:
+                for val in [ "Prs", "Rel", "Dem" ]:
+                #for val in [ "Rel" ]:
+                #for val in [ "Dem" ]:
+                #for val in [ "Prs" ]:
                     if ( val in values ):
                         prontype_ok = True        
         if ( upostag_ok and prontype_ok ):
@@ -224,7 +243,7 @@ class Eval_coref_record: # represents a corefering word
         self.drop_cluster = drop_cluster
         self.coref_type = coref_type
         
-if ( len( sys.argv) == 2 ):
+if ( len( sys.argv) == 3 ):
     e = Evaluator()
-    e.evaluate_all( sys.argv[1])
+    e.evaluate_all( sys.argv[1], sys.argv[2])
 

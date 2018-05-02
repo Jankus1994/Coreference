@@ -1,8 +1,7 @@
 # Jan Faryad
 # 4. 7. 2017
 
-from sklearn.neighbors import KNeighborsClassifier
-import os
+from sklearn import neighbors, tree, svm, linear_model
 import joblib
 import sys
 
@@ -11,35 +10,43 @@ class Trainer():
         self.inputfile = open( file_name, 'r')
         ( feature_vectors, target_vector ) = self.read_input()
         self.inputfile.close()
-        knn = KNeighborsClassifier()        
-        knn.fit( feature_vectors, target_vector )        
-        joblib.dump( knn, model_name)
-        #mvv = joblib.load( model_name)
-        #results = list( knn.predict( feature_vectors))
-        #print(len([a for a in range(len(results)) if (results[a] == True and target_vector[a] == True ) ] ) )
-        #print( results[:10] == target_vector[:10] )
+        
+        # which machine learning method we use:
+        
+        #model = neighbors.KNeighborsClassifier()        
+        model = tree.DecisionTreeClassifier()
+        #model = linear_model.LinearRegression()
+        #model = linear_model.LogisticRegression()
+        #model = linear_model.Perceptron()
+        #model = svm.SVC()
+        
+        model.fit( feature_vectors, target_vector )        
+        joblib.dump( model, model_name) # saving the model into a file with the given name
         
     def read_input( self):
+        """ reading feature vectors from the given input file """
+        NONTRAINING_VALUES_NUMBER = 7 # the last value in the row aren't for training:
+                                    #target value, pronoun form, candidate form, pronoun id (sent / worrd), candidate id (sent, word)
         feature_vectors = []
         target_vector = []
         for line in self.inputfile:
             fields = line.split( '\t')
-            feature_vector = []
-            for field in fields[:-7]:
+            feature_vector = []            
+            for field in fields[ : -NONTRAINING_VALUES_NUMBER ]: # only values for training
                 feature_vector.append( self.convert( field))
             feature_vectors.append( feature_vector)         
-            target_vector.append( self.convert( fields[-7]))
+            target_vector.append( self.convert( fields[ -NONTRAINING_VALUES_NUMBER ]))
+            # the resto of values is omitted - the ids are important for adding the predicted information to CoNLL-U, forms are only for better orientation in the data
         return  ( feature_vectors, target_vector )
     
     def convert( self, string):
         try:
-            number = int( string)
+            number = int( string) # integer value
             return number
         except:
-            if ( string == "True"):
+            if ( string == "True" ):
                 return True
-            return False
-                                
+            return False                               
         
 if ( len( sys.argv) == 3 ):
     t = Trainer()
