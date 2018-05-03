@@ -8,4 +8,4 @@ class Onto_cluster:
     def add_onto_coreferent( self, onto_coreferent):
         self.onto_coreferents.append( onto_coreferent)
     def set_node_coreferents( self, list_of_node_coreferents):
-        self.node_coreferents = list_of_node_coreferents
+        self.node_coreferents = [ node_coreferent for node_coreferent in list_of_node_coreferents if node_coreferent != None ]
