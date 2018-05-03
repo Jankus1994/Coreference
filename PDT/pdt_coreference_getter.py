@@ -124,7 +124,8 @@ class Pdt_coreference_getter( Conv_coreference_getter):
         if ( coref_type == Node_type.Dropped ): # replace a reference to dropped pronoun with a reference to its non-dropped supernode
             coref_ID = self.get_dropped( coref_ID)
             
-        if ( actual_ID != None and coref_ID != None ):   # creating a new coreference record          
+        if ( actual_ID != None and coref_ID != None and actual_ID != coref_ID ): # due to propagation of coreference of dropped nodes, the equality can happen
+            # creating a new coreference record
             record = Pdt_coreferent( actual_type == Node_type.Dropped, actual_ID, coref_type == Node_type.Dropped, coref_ID)
             return record
         
